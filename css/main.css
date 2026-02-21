@@ -46,6 +46,7 @@ header {
 }
 
 header h1 {
+    /* Minimum is 3rem (48px), so this is very safe */
     font-size: clamp(3rem, 15vw, 7.15rem); 
     color: white;
     letter-spacing: -2px;
@@ -69,7 +70,8 @@ nav a {
     text-decoration: none;
     color: white;
     text-transform: uppercase;
-    font-size: 0.75rem;
+    /* Updated to 0.85rem (~13.6px) for safety and legibility */
+    font-size: 0.85rem;
     font-weight: bold;
     letter-spacing: 1px;
 }
@@ -116,7 +118,7 @@ nav a {
 
 .featured-label {
     font-family: "Montserrat", sans-serif;
-    font-size: 1.9rem;
+    font-size: 1.9rem; /* ~30.4px */
     color: white;
     text-transform: uppercase;
     letter-spacing: 2.5px;
@@ -127,7 +129,7 @@ nav a {
 
 .artist-name {
     display: block;
-    font-size: 1.15rem;
+    font-size: 1.15rem; /* ~18.4px */
     margin-top: 5px;
     letter-spacing: 1px;
     font-weight: normal;
@@ -146,7 +148,8 @@ nav a {
 
 .img-description p {
     font-family: Arial, sans-serif;
-    font-size: 0.85rem;
+    /* Updated to 0.9rem (~14.4px) to ensure clear reading against the background */
+    font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.8);
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
     line-height: 1.4;
@@ -154,12 +157,13 @@ nav a {
 }
 
 .hero-content > h2 {
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* ~19.2px */
     margin-top: 5px;
 }
 
 .hero-content > p {
-    font-size: 0.8rem;
+    /* Updated to 0.85rem (~13.6px) */
+    font-size: 0.85rem;
     margin-top: 0px;
 }
 
@@ -175,7 +179,8 @@ nav a {
     }
 
     header h1 {
-        font-size: 12vw;
+        /* Set to a minimum of 32px so it never gets too small on tiny phones */
+        font-size: clamp(2rem, 12vw, 5rem);
         text-align: center;
         width: 100%;
     }
