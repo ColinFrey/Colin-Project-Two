@@ -25,6 +25,11 @@ body {
     background-attachment: fixed; 
 }
 
+.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+}
+
 header {
     position: absolute; 
     top: 0;
@@ -56,6 +61,7 @@ header h1 {
     white-space: nowrap;
     flex-shrink: 1;
 }
+
 nav {
     width: 100%;
     max-width: 450px;
@@ -105,30 +111,35 @@ nav a {
     gap: 40px;
     box-sizing: border-box;
 }
-.hero-sidebar{
+
+.hero-sidebar {
     flex: 1;
     max-width: 450px;
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
-.sidebar-box{
+
+.sidebar-box {
     background-color: rgba(255,255,255,0.05);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.1);
     padding: 30px;
 }
+
 .submit-box h3 {
     font-family: "Glook", serif;
     font-size: 1.8rem;
     margin-bottom: 10px;
 }
-.submit-box p{
+
+.submit-box p {
     font-size: 0.9rem;
     color: rgba(255,255,255,0.7);
     margin-bottom: 20px;
 }
-.btn-submit{
+
+.btn-submit {
     display: inline-block;
     padding: 12px 24px;
     background: white;
@@ -139,43 +150,56 @@ nav a {
     font-size: 0.8rem;
     transition: 0.3s;
 }
-.btn-submit:hover{
+
+.btn-submit:hover {
     background: #ccc;
 }
-.highlights-contianer{
+
+.highlights-container {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-.mini-box{
+
+.mini-box {
     display: flex;
     align-items: center;
-    gap: 15px;
-    background: rgba(255,255,255,0.3);
-    padding: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    gap: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px) brightness(1.4) saturate(1.5);
+    -webkit-backdrop-filter: blur(5px) brightness(1.4) saturate(1.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    transition: all 0.3s ease;
 }
-.mini-thumb{
-    width: 50px;
-    height: 50px;
+
+.mini-thumb {
+    width: 90px;
+    height: 90px;
     background: rgba(255, 255, 255, 0.1);
     flex-shrink: 0;
 }
-.mini-box span{
-    font-size: 0.85rem;
-    font-weight: bold;
+
+.mini-box span {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.9); 
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
-.footer-signup{
+
+.footer-signup {
     padding: 80px 20px;
     background: rgba(0,0,0,0.4);
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-.signup-contianer h2{
+
+.signup-container h2 {
     font-size: 2.5rem;
     letter-spacing: 4px;
     margin-bottom: 10px;
 }
+
 .signup-form input {
     padding: 15px;
     width: 300px;
@@ -183,13 +207,15 @@ nav a {
     border: 1px solid white;
     color: white;
 }
-.signup-form button{
+
+.signup-form button {
     padding: 15px 30px;
     background: white;
     border: none;
     font-weight: bold;
     cursor: pointer;
 }
+
 .hero-img-container {
     width: 100%;
     max-width: 535px;
@@ -302,7 +328,8 @@ nav a {
     margin: 0 auto;
     color: white;
 }
-#sticky-nav-container{
+
+#sticky-nav-container {
     position: fixed;
     top: 20px;
     right: 20px;
@@ -312,11 +339,13 @@ nav a {
     align-items: flex-end;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-.hidden{
+
+.hidden {
     opacity: 0;
     visibility: hidden;
 }
-#hamburger-btn{
+
+#hamburger-btn {
     background: rgba(0,0,0,0.2);
     border: 1px solid rgba(255,255,255,0.1);
     width: 50px;
@@ -332,14 +361,16 @@ nav a {
     -webkit-backdrop-filter: blur(8px) brightness(0.6) saturate(1.2);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
-#hamburger-btn span{
+
+#hamburger-btn span {
     display: block;
     width: 25px;
     height: 2px;
     background-color: white;
     transition: 0.3s;
 }
-#sticky-menu{
+
+#sticky-menu {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease-out;
@@ -349,12 +380,14 @@ nav a {
     backdrop-filter: blur(10px) brightness(0.8) saturate(1.2);
     -webkit-backdrop-filter: blur(10px) brightness(0.8) saturate(1.2);
 }
-#sticky-menu.open{
+
+#sticky-menu.open {
     max-height: 500px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
-#sticky-menu ul{
+
+#sticky-menu ul {
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -362,10 +395,121 @@ nav a {
     text-align: right;
     list-style: none;
 }
-#sticky-menu a{
+
+#sticky-menu a {
     color: white;
     text-transform: uppercase;
     font-size: 0.85rem;
     font-weight: bold;
     white-space: nowrap;
+}
+/*POP UP*/
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);   
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 9999;                 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.4s ease;
+}
+
+.modal-content {
+    background: rgba(15, 15, 15, 0.6); 
+    backdrop-filter: blur(25px) brightness(0.7);
+    -webkit-backdrop-filter: blur(25px) brightness(0.7);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 50px 40px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9); 
+}
+
+.modal-title {
+    font-family: "Danfo", serif;
+    font-size: clamp(2.5rem, 8vw, 5.5rem); 
+    color: white;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.modal-desc {
+    font-family: Arial, sans-serif;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 30px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.modal-form input {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.modal-form input:focus {
+    border: 1px solid white;
+}
+
+.modal-form button {
+    padding: 15px;
+    background: white;
+    color: black;
+    border: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.modal-form button:hover {
+    background: #ccc;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.close-modal:hover {
+    opacity: 1;
+}
+
+.modal-hidden {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
 }
