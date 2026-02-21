@@ -46,7 +46,6 @@ header {
 }
 
 header h1 {
-    /* Minimum is 3rem (48px), so this is very safe */
     font-size: clamp(3rem, 15vw, 7.15rem); 
     color: white;
     letter-spacing: -2px;
@@ -70,7 +69,6 @@ nav a {
     text-decoration: none;
     color: white;
     text-transform: uppercase;
-    /* Updated to 0.85rem (~13.6px) for safety and legibility */
     font-size: 0.85rem;
     font-weight: bold;
     letter-spacing: 1px;
@@ -93,12 +91,97 @@ nav a {
     margin: 0 auto;
     padding: 0 40px; 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start; 
-    justify-content: center; 
+    justify-content: space-between; 
+    gap: 40px;
     box-sizing: border-box;
 }
-
+.hero-sidebar{
+    flex: 1;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.sidebar-box{
+    background-color: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 30px;
+}
+.submit-box h3 {
+    font-family: "Glook", serif;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+.submit-box p{
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 20px;
+}
+.btn-submit{
+    display: inline-block;
+    padding: 12px 24px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+.btn-submit:hover{
+    background: #ccc;
+}
+.highlights-contianer{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.mini-box{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255,255,255,0.3);
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.mini-thumb{
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+}
+.mini-box span{
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+.footer-signup{
+    padding: 80px 20px;
+    background: rgba(0,0,0,0.4);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.signup-contianer h2{
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+.signup-form input {
+    padding: 15px;
+    width: 300px;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+.signup-form button{
+    padding: 15px 30px;
+    background: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
 .hero-img-container {
     width: 100%;
     max-width: 535px;
@@ -118,7 +201,7 @@ nav a {
 
 .featured-label {
     font-family: "Montserrat", sans-serif;
-    font-size: 1.9rem; /* ~30.4px */
+    font-size: 1.9rem;
     color: white;
     text-transform: uppercase;
     letter-spacing: 2.5px;
@@ -129,7 +212,7 @@ nav a {
 
 .artist-name {
     display: block;
-    font-size: 1.15rem; /* ~18.4px */
+    font-size: 1.15rem;
     margin-top: 5px;
     letter-spacing: 1px;
     font-weight: normal;
@@ -148,7 +231,6 @@ nav a {
 
 .img-description p {
     font-family: Arial, sans-serif;
-    /* Updated to 0.9rem (~14.4px) to ensure clear reading against the background */
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.8);
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
@@ -157,12 +239,11 @@ nav a {
 }
 
 .hero-content > h2 {
-    font-size: 1.2rem; /* ~19.2px */
+    font-size: 1.2rem; 
     margin-top: 5px;
 }
 
 .hero-content > p {
-    /* Updated to 0.85rem (~13.6px) */
     font-size: 0.85rem;
     margin-top: 0px;
 }
@@ -179,15 +260,14 @@ nav a {
     }
 
     header h1 {
-        /* Set to a minimum of 32px so it never gets too small on tiny phones */
         font-size: clamp(2rem, 12vw, 5rem);
         text-align: center;
         width: 100%;
     }
 
     .hero-content {
-        align-items: center; 
-        text-align: center;
+       flex-direction: column;
+       align-items: center;
     }
 
     .hero-img-container {
@@ -276,9 +356,4 @@ nav a {
     font-size: 0.85rem;
     font-weight: bold;
     white-space: nowrap;
-}
-
-/*TEMPORARY .CONTENT DELETE ONCE MORE REAL CONTENT IS ADDED*/
-.content{
-    min-height: 200vh;
 }
