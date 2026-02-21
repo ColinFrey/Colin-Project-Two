@@ -4,7 +4,12 @@
     100% { background-position: 0% 50%; }
 }
 
-h1, h2 {
+h1 {
+    font-family: "Danfo", serif;
+    margin: 0;
+} 
+
+h2 {
     font-family: "Gloock", serif;
     margin: 0; 
 }
@@ -25,7 +30,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 30px 0;
+    padding: 10px 0; 
     z-index: 10;
 }
 
@@ -41,17 +46,18 @@ header {
 }
 
 header h1 {
-    font-size: clamp(2.5rem, 15vw, 7rem); 
+    font-size: clamp(3rem, 15vw, 7.15rem); 
     color: white;
     letter-spacing: -2px;
     line-height: 0.9;
     text-transform: uppercase;
     text-align: left;
+    margin-top: 0;
 }
 
 nav ul {
     list-style: none;
-    padding: 20px 0;
+    padding: 10px 0;
     margin: 0;
     display: flex;
     gap: 40px;
@@ -75,17 +81,19 @@ nav a {
     justify-content: center; 
     color: white;
     box-sizing: border-box;
-    padding-top: 180px; 
+    padding-top: 135px; 
+    padding-bottom: 10px; 
 }
 
 .hero-content {
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    padding: 60px 40px; 
+    padding: 0 40px; 
     display: flex;
     flex-direction: column;
     align-items: flex-start; 
+    justify-content: center; 
     box-sizing: border-box;
 }
 
@@ -95,85 +103,94 @@ nav a {
     display: flex;
     flex-direction: column;
     justify-content: flex-start; 
-    margin-bottom: 40px;
-
+    margin-bottom: 10px; 
     background-color: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(5px) brightness(1.4) saturate(1.5);
     -webkit-backdrop-filter: blur(5px) brightness(1.4) saturate(1.5);
-
-    padding: 30px;
-    padding-bottom: 70px;
+    padding: 25px;
+    padding-bottom: 35px; 
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
     box-sizing: border-box;
 }
-.featured-label{
-    font-size: 2.5rem;
+
+.featured-label {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.9rem;
     color: white;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 25px !important;
-    font-weight: bold;
-    line-height: 1.2;
+    letter-spacing: 2.5px;
+    margin-bottom: 15px !important;
+    font-weight: 700;
+    line-height: 1.1;
 }
-.artist-name{
+
+.artist-name {
     display: block;
-    font-size: 1.5rem;
+    font-size: 1.15rem;
     margin-top: 5px;
     letter-spacing: 1px;
+    font-weight: normal;
 }
+
 .hero-img-container img {
     width: 100%;
     max-width: 535px; 
     height: auto;
     display: block;
 }
-.img-description{
-    margin-top: 25px;
+
+.img-description {
+    margin-top: 15px;
 }
-.img-description p{
+
+.img-description p {
     font-family: Arial, sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.8);
     text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    line-height: 1.5;
+    line-height: 1.4;
     margin: 0;
 }
+
+.hero-content > h2 {
+    font-size: 1.2rem;
+    margin-top: 5px;
+}
+
+.hero-content > p {
+    font-size: 0.8rem;
+    margin-top: 0px;
+}
+
 @media (max-width: 800px) {
-   
     .hero {
-        padding-top: 240px; 
+        padding-top: 160px; 
     }
 
     .header-container {
         flex-direction: column; 
-        gap: 20px;
+        gap: 10px;
         padding: 0 10px;
     }
 
     header h1 {
-        font-size: 14vw;
+        font-size: 12vw;
         text-align: center;
         width: 100%;
     }
 
     .hero-content {
-        padding-top: 40px;
         align-items: center; 
         text-align: center;
     }
 
     .hero-img-container {
-        justify-content: center; 
-        align-items: center;
-        text-align: center;
+        max-width: 90%;
+        padding-bottom: 25px;
     }
 
-    .hero-img-container img {
-        max-width: 80%; 
-        height: auto;
-    }
-    nav ul{
+    nav ul {
         gap: 15px;
         flex-wrap: wrap;
         justify-content: center;
@@ -183,7 +200,7 @@ nav a {
 .content {
     position: relative;
     background-color: #1a1d1a; 
-    padding: 80px 20px;
+    padding: 60px 20px;
     max-width: 800px;
     margin: 0 auto;
     color: white;
