@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
 <div id="newsletter-modal" class="modal-overlay modal-hidden">
   <div class="modal-content">
     <button class="close-modal" id="close-modal">&times;</button>
@@ -23,94 +24,47 @@
     <form class="modal-form" id="modal-form">
       <input type="text" placeholder="Full Name" required>
       <input type="email" placeholder="Email Address" required>
+
+      <div class="phone-row">
+        <input type="tel" id="phone-input" placeholder="Phone Number (Optional)" maxlength="14">
+        <label class="sms-toggle">
+          <input type="checkbox">
+          <span class="sms-label">SMS Alerts</span>
+        </label>
+      </div>
       <button type="submit">Join the Newsletter</button>
     </form>
   </div>
 </div>
-  <header>
-    <div class="header-container">
-      <h1>DAILY INK</h1>
-      <nav>
-        <ul>
-          <li><a href="#">Art</a></li>
-          <li><a href="#">Design</a></li>
-          <li><a href="#">Photography</a></li>
-          <li><a href="#">Archive</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        
-        <div class="hero-img-container">
-          <h2 class="featured-label">Featured Artist of the Week<span class="artist-name">Colin Frey</span></h2>
-          <img src="img/WebDesignP2_IMG3.jpg" alt="Original art by Colin Frey">
-          <div class="img-description">
-            <p>Original art by Colin Frey. Hand-pulled Linocut on Paper, 2026.</p>
-          </div>
-        </div>
+<div id="submission-modal" class="modal-overlay modal-hidden">
+  <div class="modal-content">
+    <button class="close-modal" id="close-submission">&times;</button>
+    <h2 class="modal-title submission-header">Showcase Your Talent</h2>
+    <p class="modal-desc">Tell us about your craft. We’re looking for stories as much as skill.</p>
+    
+    <form class="modal-form" id="artist-form">
+      <input type="text" id="artist-name" placeholder="Full Name" required>
+      <input type="email" id="artist-email" placeholder="Email Address" required>
+      <textarea id="artist-statement" rows="4" placeholder="What does your work represent?" required></textarea>
 
-        <div class="hero-sidebar">
-          
-          <div class="sidebar-box submit-box">
-            <h3>Showcase Your Talent</h3>
-            <p>Submit your portfolio for a chance to be our next featured artist.</p>
-            <a href="#" class="btn-submit">Apply Now</a>
-          </div>
-
-          <div class="highlights-container">
-            <div class="mini-box">
-              <div class="mini-thumb">
-                <img src="img/artist-1.jpg" alt="" style="width:100%; height:100%; object-fit:cover;">
-              </div>
-              <span>Artist Highlight: Susan Xiao</span>
-            </div>
-
-            <div class="mini-box">
-              <div class="mini-thumb">
-                <img src="img/artist-2.jpg" alt="" style="width:100%; height:100%; object-fit:cover;">
-              </div>
-              <span>Artist Highlight: Georgia Cravey</span>
-            </div>
-
-            <div class="mini-box">
-              <div class="mini-thumb">
-                <img src="img/artist-3.jpg" alt="" style="width:100%; height:100%; object-fit:cover;">
-              </div>
-              <span>Artist Highlight: Gabriella Ham</span>
-            </div>
-          </div>
-          
-        </div> </div>
-    </section>
-
-    <section class="content">
-      <h2>Latest Stories</h2>
-      <p>regular content begins</p>
-    </section>
-
-    <footer class="footer-signup">
-      <div class="signup-container">
-        <h2>STAY INSPIRED</h2>
-        <p>Join our community for weekly updates, artist notifications, and exclusive craft tips.</p>
-        <form class="signup-form">
-          <input type="email" placeholder="Enter your email address..." required aria-label="Email Address">
-          <button type="submit">JOIN THE CLUB</button>
-        </form>
+      <div class="file-upload-container">
+        <label for="portfolio-file" class="file-label">
+          <span class="file-custom-btn">Attach Portfolio</span>
+          <span id="file-name">No file chosen (PDF or ZIP)</span>
+        </label>
+        <input type="file" id="portfolio-file" accept=".pdf,.zip,.jpg,.png" required class="visually-hidden">
       </div>
-    </footer>
-  </main>
 
-  <div id="sticky-nav-container" class="hidden">
-    <button id="hamburger-btn" aria-label="Toggle Menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <nav id="sticky-menu">
+      <button type="submit">Submit Application</button>
+    </form>
+  </div>
+</div>
+
+<header>
+  <div class="header-container">
+    <h1>DAILY INK</h1>
+    <nav>
       <ul>
         <li><a href="#">Art</a></li>
         <li><a href="#">Design</a></li>
@@ -119,8 +73,147 @@
       </ul>
     </nav>
   </div>
+</header>
 
-  <script src="js/main.js"></script>
+<main>
+  <section class="hero">
+    <div class="hero-content">
+      
+      <div class="hero-img-container">
+        <h2 class="featured-label">Featured Work of the Week<span class="artist-name">Colin Frey</span></h2>
+        <img src="img/WebDesignP2_IMG3.jpg" alt="Original art by Colin Frey">
+        <div class="img-description">
+          <p>Original art by Colin Frey. Hand-pulled Linocut on Paper, 2026.</p>
+        </div>
+      </div>
+
+      <div class="hero-sidebar">
+        <div class="sidebar-box submit-box">
+          <h3>Showcase Your Talent</h3>
+          <p>Submit your portfolio for a chance to be our next featured artist.</p>
+          <a href="#" class="btn-submit">Apply Now</a>
+        </div>
+
+        <div class="highlights-container">
+          <div class="mini-box">
+            <div class="mini-thumb">
+              <img src="img/WebDesignP2_IMG5.jpeg" alt="" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <span>Artist Highlight: Susan Xiao</span>
+          </div>
+          <div class="mini-box">
+            <div class="mini-thumb">
+              <img src="img/artist-2.jpg" alt="" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <span>Artist Highlight: Georgia Cravey</span>
+          </div>
+          <div class="mini-box">
+            <div class="mini-thumb">
+              <img src="img/WebDesignP2_IMG4.jpeg" alt="" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <span>Artist Highlight: Gabriella Ham</span>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </section>
+
+ <section class="latest-stories-bar">
+    <div class="stories-header">
+      <h2>Latest Stories</h2>
+    </div>
+    
+    <div class="horizontal-scroll-wrapper">
+      <article class="story-card">
+        <div class="story-img">
+          <img src="img/WebDesignP2_IMG5.jpeg" alt="Susan Xiao">
+        </div>
+        <div class="story-details">
+          <p class="meta-label">Highlighted Artist</p>
+          <h3>Susan Xiao</h3>
+          <div class="specs">
+            <span><strong>Materials:</strong> Reduction Linocut on Paper</span>
+            <span><strong>Created:</strong> 2025</span>
+          </div>
+          <p class="description">Susan's brief description of work.</p>
+        </div>
+      </article>
+
+      <article class="story-card">
+        <div class="story-img">
+          <img src="img/artist-2.jpg" alt="Georgia Cravey">
+        </div>
+        <div class="story-details">
+          <p class="meta-label">Highlighted Artist</p>
+          <h3>Georgia Cravey</h3>
+          <div class="specs">
+            <span><strong>Materials:</strong> Hand-pulled Linocut on Paper</span>
+            <span><strong>Created:</strong> 2024</span>
+          </div>
+          <p class="description">Georgia’s brief description of work.</p>
+        </div>
+      </article>
+
+      <article class="story-card">
+        <div class="story-img">
+          <img src="img/WebDesignP2_IMG4.jpeg" alt="Gabriella Ham">
+        </div>
+        <div class="story-details">
+          <p class="meta-label">Highlighted Artist</p>
+          <h3>Gabriella Ham</h3>
+          <div class="specs">
+            <span><strong>Materials:</strong> Etching from Copper Plate on Paper</span>
+            <span><strong>Created:</strong> 2025</span>
+          </div>
+          <p class="description">Gabriella's brief description of work.</p>
+        </div>
+      </article>
+
+      <article class="story-card">
+        <div class="story-img">
+          <img src="img/story1.jpg" alt="New Artist">
+        </div>
+        <div class="story-details">
+          <p class="meta-label">&nbsp;</p>
+          <h3>Marcus Thorne</h3>
+          <div class="specs">
+            <span><strong>Materials:</strong> material used</span>
+            <span><strong>Created:</strong> year created</span>
+          </div>
+          <p class="description">Exploring monochromatic landscapes that reflect on the fragility of forest ecosystems.</p>
+        </div>
+      </article>
+
+      </div>
+  </section>
+
+  <footer class="footer-signup">
+    <div class="signup-container">
+      <h2>STAY INSPIRED</h2>
+      <p>Join our community for weekly updates, artist notifications, and exclusive craft tips.</p>
+      <form class="signup-form">
+        <input type="email" placeholder="Enter your email address..." required aria-label="Email Address">
+        <button type="submit">JOIN THE CLUB</button>
+      </form>
+    </div>
+  </footer>
+</main>
+
+<div id="sticky-nav-container" class="hidden">
+  <button id="hamburger-btn" aria-label="Toggle Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav id="sticky-menu">
+    <ul>
+      <li><a href="#">Art</a></li>
+      <li><a href="#">Design</a></li>
+      <li><a href="#">Photography</a></li>
+      <li><a href="#">Archive</a></li>
+    </ul>
+  </nav>
+</div>
+
+<script src="js/main.js"></script>
 
 </body>
 </html>

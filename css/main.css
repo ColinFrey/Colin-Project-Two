@@ -14,6 +14,21 @@ h2 {
     margin: 0; 
 }
 
+.visually-hidden {
+   position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0; 
+}
+.no-scroll{
+    overflow: hidden;
+    height: 100vh;
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -281,8 +296,24 @@ nav a {
     font-size: 0.85rem;
     margin-top: 0px;
 }
+/* --- 1. TABLET MEDIA STATE --- */
+@media (max-width: 1100px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hero-content {
+        gap: 20px; 
+    }
+}
 
+/* --- 2. MOBILE MEDIA STATE --- */
 @media (max-width: 800px) {
+    .story-card {
+        flex: 0 0 85vw;
+    }
+    .grid-container{
+        grid-template-columns: 1fr;
+    }
     .hero {
         padding-top: 160px; 
     }
@@ -320,13 +351,129 @@ nav a {
     }
 }
 
-.content {
+/* LATEST STORIES BAR */
+.latest-stories-bar {
+    background-color: #0d0f0e;
+    padding: 80px 0;
+    width: 100%;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+ 
+}
+
+.stories-header {
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    padding: 0 40px;
+}
+
+/* THE SCROLL FEATURE */
+.horizontal-scroll-wrapper {
+    display: flex;
+    flex-wrap: nowrap;    
+    overflow-x: auto;      
+    gap: 30px;
+    padding: 0 40px 40px 40px; 
+    scroll-padding-left: 40px;
+    scroll-snap-type: x mandatory; 
+    -webkit-overflow-scrolling: touch; 
+}
+
+.horizontal-scroll-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+.horizontal-scroll-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(163, 177, 138, 0.3); 
+    border-radius: 10px;
+}
+
+
+.story-card {
+    flex: 0 0 400px;    
+    height: 550px;  
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
     position: relative;
-    background-color: #1a1d1a; 
-    padding: 60px 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    color: white;
+    overflow: hidden;
+    transition: background 0.3s ease;
+}
+
+.story-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.story-img {
+    width: 100%;
+    height: 100%;       
+    overflow: hidden;
+}
+
+.story-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Hover & Click Logic */
+.story-card:hover .story-details,
+.story-card.is-expanded .story-details {
+    transform: translateY(100%); 
+    opacity: 0;
+}
+.story-card:hover .story-img,
+.story-card.is-expanded .story-img {
+    height: 100%; 
+}
+/*end*/
+.story-details {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   box-sizing: border-box;
+   padding: 30px;
+   background: rgba(13,15,14,0.95);
+   backdrop-filter: blur(5px);
+   transition: transform 0.5s ease, opacity 0.5s ease;
+   z-index: 2;
+}
+.story-details h3{
+    color: #fff;
+    margin: 0 0 10px 0;
+    font-family: "Glook", serif;
+}
+.meta-label {
+    font-size: 0.75rem;
+    color: #a3b18a;      
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.specs {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.specs strong {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 #sticky-nav-container {
@@ -491,7 +638,41 @@ nav a {
 .modal-form button:hover {
     background: #ccc;
 }
+.phone-row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    width: 100%;
+    margin-top: 5px;
+}
+#phone-input {
+    flex: 1;
+}
 
+.sms-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.sms-label {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.sms-toggle input[type="checkbox"] {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    accent-color: #ffffff;
+}
 .close-modal {
     position: absolute;
     top: 15px;
@@ -512,4 +693,71 @@ nav a {
     opacity: 0 !important;
     pointer-events: none !important;
     visibility: hidden !important;
+}
+
+.submission-header {
+    font-family: "Gloock", serif !important;
+    font-size: clamp(1.8rem, 5vw, 3rem) !important;
+    letter-spacing: 1px !important;
+    margin-bottom: 20px;
+}
+
+.modal-form textarea {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    resize: vertical;
+    min-height: 100px;
+    max-height: 300px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.modal-form textarea:focus {
+    border: 1px solid white;
+}
+
+.file-upload-container {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.file-label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.file-custom-btn {
+    display: inline-block;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px dashed rgba(255, 255, 255, 0.5);
+    color: white;
+    text-align: center;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+.file-custom-btn.file-attached{
+    background: white;
+    color: black;
+    border-style: solid;
+    border-color: white;
+}
+
+.file-custom-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: white;
+}
+
+#file-name {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
 }
