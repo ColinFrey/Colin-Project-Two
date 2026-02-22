@@ -391,8 +391,9 @@ nav a {
        overflow-x: auto;
     }
     .story-card {
-        flex: 0 0 clamp(280px,75vw,450px);
-        height: clamp(400px,110vh,550px);
+       flex: 0 0 80vw;
+       max-width: 380px;
+       height: 500px;
         scroll-snap-align: center;
         margin: 0;
     }
