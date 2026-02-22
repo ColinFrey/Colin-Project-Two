@@ -370,6 +370,54 @@ nav a {
     font-size: 0.85rem;
     margin-top: 0px;
 }
+.info-grid-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.grid-container {
+    display: grid;
+    /* 2 columns for desktop */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.glass-box {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px) brightness(1.4) saturate(1.5);
+    -webkit-backdrop-filter: blur(5px) brightness(1.4) saturate(1.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s ease, border 0.3s ease;
+}
+
+.glass-box:hover {
+    transform: translateY(-5px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+.box-content h3 {
+    font-family: "Gloock", serif;
+    color: white;
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.box-content p {
+    font-family: Arial, sans-serif;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin: 0;
+}
 /* --- 1. TABLET MEDIA STATE --- */
 @media (max-width: 1100px) {
     .grid-container {
@@ -419,6 +467,10 @@ nav a {
     }
     .grid-container{
         grid-template-columns: 1fr;
+    }
+    .info-grid-section{
+        padding: 0 20px;
+        margin-top: 40px;
     }
     .hero {
         padding-top: 160px; 
