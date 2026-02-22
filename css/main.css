@@ -308,8 +308,13 @@ nav a {
 
 /* --- 2. MOBILE MEDIA STATE --- */
 @media (max-width: 800px) {
+    .horizontal-scroll-wrapper{
+        padding: 0 10% 40px 10%;
+        scroll-padding: 0 10%;
+    }
     .story-card {
         flex: 0 0 85vw;
+        scroll-snap-align: center;
     }
     .grid-container{
         grid-template-columns: 1fr;
@@ -446,7 +451,7 @@ nav a {
 }
 .meta-label {
     font-size: 0.75rem;
-    color: #a3b18a;      
+    color: #d2eaa7;      
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 10px;
