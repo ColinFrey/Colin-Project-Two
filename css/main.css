@@ -422,14 +422,21 @@ nav a {
     object-fit: cover;
 }
 /* Hover & Click Logic */
-.story-card:hover .story-details,
 .story-card.is-expanded .story-details {
     transform: translateY(100%); 
     opacity: 0;
 }
-.story-card:hover .story-img,
 .story-card.is-expanded .story-img {
     height: 100%; 
+}
+@media (hover: hover) {
+    .story-card:hover .story-details {
+        transform: translateY(100%); 
+        opacity: 0;
+    }
+    .story-card:hover .story-img {
+        height: 100%; 
+    }
 }
 /*end*/
 .story-details {
