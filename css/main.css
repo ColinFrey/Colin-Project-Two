@@ -309,11 +309,13 @@ nav a {
 /* --- 2. MOBILE MEDIA STATE --- */
 @media (max-width: 800px) {
     .horizontal-scroll-wrapper{
-        padding: 0 10% 40px 10%;
-        scroll-padding: 0 10%;
+        padding: 0 15% 40px 15%;
+        scroll-padding: 0 15%;
+        gap: 20px;
     }
     .story-card {
-        flex: 0 0 85vw;
+        flex: 0 0 75vw;
+        height: 480px;
         scroll-snap-align: center;
     }
     .grid-container{
