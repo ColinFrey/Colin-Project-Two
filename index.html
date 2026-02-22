@@ -44,7 +44,7 @@
     <p class="modal-desc">Tell us about your craft. We’re looking for stories as much as skill.</p>
     
     <form class="modal-form" id="artist-form">
-      <input type="text" id="artist-name" placeholder="Full Name" required>
+      <input type="text" id="artist-name-input" placeholder="Full Name" required>
       <input type="email" id="artist-email" placeholder="Email Address" required>
       <textarea id="artist-statement" rows="4" placeholder="What does your work represent?" required></textarea>
 
@@ -61,16 +61,60 @@
   </div>
 </div>
 
+<div id="sticky-nav-container" class="hidden">
+  <button id="hamburger-btn" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <nav id="sticky-menu">
+    <div class="nav-wrapper">
+      <ul class="nav-menu">
+        <li><a href="#">Archive</a></li>
+        <li><a href="#">Tips</a></li>
+        <li><a href="#">Community</a></li>
+        <li>
+          <a href="javascript:void(0)" aria-label="Search" class="search-trigger">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </a>
+        </li>
+      </ul>
+
+      <form class="search-bar-container" onsubmit="handleSearch(event, 'sticky-search')">
+        <input type="text" id="sticky-search" class="search-input" placeholder="SEARCH ARTISTS...">
+        <button type="button" class="search-close">&times;</button>
+      </form>
+    </div>
+  </nav>
+</div>
+
 <header>
   <div class="header-container">
     <h1>DAILY INK</h1>
     <nav>
-      <ul>
-        <li><a href="#">Art</a></li>
-        <li><a href="#">Design</a></li>
-        <li><a href="#">Photography</a></li>
-        <li><a href="#">Archive</a></li>
-      </ul>
+      <div class="nav-wrapper">
+        <ul class="nav-menu">
+          <li><a href="#">Archive</a></li>
+          <li><a href="#">Tips</a></li>
+          <li><a href="#">Community</a></li>
+          <li>
+            <a href="javascript:void(0)" aria-label="Search" class="search-trigger">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </a>
+          </li>
+        </ul>
+
+        <form class="search-bar-container" onsubmit="handleSearch(event, 'main-search')">
+          <input type="text" id="main-search" class="search-input" placeholder="SEARCH ARTISTS...">
+          <button type="button" class="search-close">&times;</button>
+        </form>
+      </div>
     </nav>
   </div>
 </header>
@@ -118,7 +162,7 @@
     </div>
   </section>
 
- <section class="latest-stories-bar">
+  <section class="latest-stories-bar">
     <div class="stories-header">
       <h2>The Archive</h2>
     </div>
@@ -165,7 +209,7 @@
             <span><strong>Materials:</strong> Etching from Copper Plate on Paper</span>
             <span><strong>Created:</strong> 2025</span>
           </div>
-          <p class="description">Gabriela's brief description of work.</p>
+          <p class="description">Gabriela uses acid to etch intricate lines into copper plates for her prints.</p>
         </div>
       </article>
 
@@ -175,75 +219,18 @@
         </div>
         <div class="story-details">
           <p class="meta-label">&nbsp;</p>
-          <h3>Random</h3>
+          <h3>Random Artist</h3>
           <div class="specs">
-            <span><strong>Materials:</strong> material used</span>
-            <span><strong>Created:</strong> year created</span>
+            <span><strong>Materials:</strong> Charcoal on Vellum</span>
+            <span><strong>Created:</strong> 2026</span>
           </div>
-          <p class="description">Exploring monochromatic landscapes that reflect on the fragility of forest ecosystems.</p>
+          <p class="description">Exploring monochromatic landscapes and forest ecosystems.</p>
         </div>
       </article>
-
-       <article class="story-card">
-        <div class="story-img">
-          <img src="img/story1.jpg" alt="New Artist">
-        </div>
-        <div class="story-details">
-          <p class="meta-label">&nbsp;</p>
-          <h3>Random 1</h3>
-          <div class="specs">
-            <span><strong>Materials:</strong> material used</span>
-            <span><strong>Created:</strong> year created</span>
-          </div>
-          <p class="description"> Random 1 description </p>
-        </div>
-      </article>
-
-       <article class="story-card">
-        <div class="story-img">
-          <img src="img/story1.jpg" alt="New Artist">
-        </div>
-        <div class="story-details">
-          <p class="meta-label">&nbsp;</p>
-          <h3>Random 2</h3>
-          <div class="specs">
-            <span><strong>Materials:</strong> material used</span>
-            <span><strong>Created:</strong> year created</span>
-          </div>
-          <p class="description"> Random 2 description </p>
-        </div>
-      </article>
-
-      </div>
-  </section>
-
-  <footer class="footer-signup">
-    <div class="signup-container">
-      <h2>STAY INSPIRED</h2>
-      <p>Join our community for weekly updates, artist notifications, and exclusive craft tips.</p>
-      <form class="signup-form">
-        <input type="email" placeholder="Enter your email address..." required aria-label="Email Address">
-        <button type="submit">JOIN THE CLUB</button>
-      </form>
     </div>
-  </footer>
+  </section>
 </main>
 
-<div id="sticky-nav-container" class="hidden">
-  <button id="hamburger-btn" aria-label="Toggle Menu">
-    <span></span><span></span><span></span>
-  </button>
-  <nav id="sticky-menu">
-    <ul>
-      <li><a href="#">Art</a></li>
-      <li><a href="#">Design</a></li>
-      <li><a href="#">Photography</a></li>
-      <li><a href="#">Archive</a></li>
-    </ul>
-  </nav>
-</div>
-
 <script src="js/main.js"></script>
-
 </body>
 </html>

@@ -36,7 +36,7 @@ body {
     overflow-x: hidden;
     background: linear-gradient(-45deg, #090e0c, #132b25, #1b2826, #141b21, #0f0d12);
     background-size: 400% 400%;
-    animation: gradientShift 35s ease infinite;
+    animation: gradientShift 25s ease infinite;
     background-attachment: fixed; 
 }
 
@@ -84,14 +84,79 @@ nav {
     margin-left: 20px;
 }
 
-nav ul {
+/* Keep the borders on the wrapper now, not the UL */
+.nav-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-top: 2px solid rgba(255,255,255,0.3);
+    border-bottom: 2px solid rgba(255,255,255,0.3);
+}
+
+.nav-menu {
     list-style: none;
     padding: 10px 0;
     margin: 0;
     display: flex;
-    justify-content: space-between; 
-    border-top: 2px solid rgba(255,255,255,0.3);
-    border-bottom: 2px solid rgba(255,255,255,0.3);
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.search-bar-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transform: translateY(100%); 
+    transition: transform 0.4s ease;
+}
+.nav-wrapper.search-active .nav-menu {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.nav-wrapper.search-active .search-bar-container {
+    transform: translateY(0);
+}
+/* Styling the actual search input field */
+.search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    outline: none;
+    padding-left: 5px;
+}
+
+/* Styling the close (X) button */
+.search-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0 10px;
+    line-height: 1;
+    transition: color 0.3s ease;
+}
+
+.search-close:hover {
+    color: #d2eaa7;
+}
+
+/* Ensure the search trigger behaves like a link */
+.search-trigger {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 nav a {
@@ -101,6 +166,15 @@ nav a {
     font-size: 0.85rem;
     font-weight: bold;
     letter-spacing: 1px;
+}
+.search-trigger svg {
+    display: block;
+    width: 1.1rem;        
+    height: 1.1rem;
+}
+.search-trigger:hover {
+    transform: scale(1.2);
+    color: #d2eaa7;
 }
 
 .hero {
@@ -143,7 +217,7 @@ nav a {
 }
 
 .submit-box h3 {
-    font-family: "Glook", serif;
+    font-family: "Gloock", serif;
     font-size: 1.8rem;
     margin-bottom: 10px;
 }
@@ -591,6 +665,7 @@ nav a {
     flex-direction: column;
     gap: 20px;
     text-align: right;
+    align-items: flex-end;
     list-style: none;
 }
 
@@ -600,6 +675,43 @@ nav a {
     font-size: 0.85rem;
     font-weight: bold;
     white-space: nowrap;
+}
+/* --- STICKY NAV SEARCH ADJUSTMENTS --- */
+
+#sticky-menu .nav-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    min-height: 50px;
+}
+
+#sticky-menu .search-bar-container {
+    background: rgba(0, 0, 0, 0.85); 
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+#sticky-search {
+    font-size: 0.75rem;
+    width: 100%;
+}
+
+#sticky-menu.open {
+    max-height: 600px; 
+}
+
+#sticky-menu .nav-menu {
+    transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+@keyframes foundPulse {
+    0% { transform: scale(1); outline: 2px solid #d2eaa7; }
+    50% { transform: scale(1.02); outline: 4px solid #d2eaa7; }
+    100% { transform: scale(1); outline: 2px solid transparent; }
+}
+
+.story-card[style*="outline"] {
+    animation: foundPulse 1.5s ease-in-out;
 }
 /*POP UP*/
 
@@ -812,3 +924,4 @@ nav a {
     color: rgba(255, 255, 255, 0.5);
     font-style: italic;
 }
+
