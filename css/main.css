@@ -40,11 +40,6 @@ body {
     background-attachment: fixed; 
 }
 
-.no-scroll {
-    overflow: hidden;
-    height: 100vh;
-}
-
 header {
     position: absolute; 
     top: 0;
@@ -517,6 +512,17 @@ nav a {
     .latest-stories-bar{
         padding: 30px 0 60px 0;
     }
+      .banner-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .banner-form {
+        justify-content: center;
+        width: 100%;
+    }
+    .banner-form input, .banner-phone-group {
+        width: 100%;
+    }
 }
 
 /* LATEST STORIES BAR */
@@ -627,7 +633,7 @@ nav a {
 .story-details h3{
     color: #fff;
     margin: 0 0 10px 0;
-    font-family: "Glook", serif;
+    font-family: "Gloock", serif;
 }
 .meta-label {
     font-size: 0.75rem;
@@ -984,4 +990,116 @@ nav a {
     color: rgba(255, 255, 255, 0.5);
     font-style: italic;
 }
+/* --- ADD THIS NEW SECTION --- */
+/* 1. The Full-Width Black Frame */
+.community-banner {
+    grid-column: 1 / -1; 
+    margin-top: 60px;
+    margin-bottom: 60px;
+    
+    /* This padding creates the "surround" effect (80px black bar on top/bottom) */
+    padding: 80px 0; 
+    
+    position: relative;
+    background-color: #0d0f0e; /* Archive Black */
+    
+    /* Full-width breakout trick */
+    box-shadow: 0 0 0 100vmax #0d0f0e;
+    clip-path: inset(0 -100vmax); 
+}
+
+/* 2. The Shorter "Join" Box */
+.banner-content {
+    max-width: 1000px; 
+    margin: 0 auto;
+    padding: 50px 40px; 
+    background: linear-gradient(-45deg, #090e0c, #132b25, #1b2826, #141b21, #0f0d12);
+    background-size: 400% 400%;
+    animation: gradientShift 25s ease infinite;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    text-align: center;
+    transition: border 0.3s ease, transform 0.3s ease;
+}
+
+.banner-text {
+    flex: none;
+    min-width: auto;
+    max-width: 600px;
+}
+
+.community-title {
+    font-family: "Gloock", serif;
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.banner-text p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.banner-form {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.banner-form input {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 15px;
+    color: white;
+    font-size: 0.9rem;
+    outline: none;
+}
+
+.banner-phone-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding-right: 10px;
+}
+
+.banner-phone-group input {
+    border: none;
+    background: transparent;
+}
+
+.banner-sms {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.banner-form button {
+    background: white;
+    color: black;
+    border: none;
+    padding: 12px 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.banner-form button:hover {
+    background: #d2eaa7; 
+}
+
 

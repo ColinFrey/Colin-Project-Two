@@ -88,19 +88,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- 4. PHONE NUMBER FORMATTING ---
-    const phoneInput = document.getElementById('phone-input');
-    if (phoneInput) {
-        phoneInput.addEventListener('input', (e) => {
-            let input = e.target.value.replace(/\D/g, ''); 
-            let size = input.length;
-            if (size === 0) { e.target.value = ''; return; }
-            if (size < 4) { input = `(${input}`; } 
-            else if (size < 7) { input = `(${input.substring(0, 3)}) ${input.substring(3, 6)}`; } 
-            else { input = `(${input.substring(0, 3)}) ${input.substring(3, 6)}-${input.substring(6, 10)}`; }
-            e.target.value = input;
-        });
-    }
+   // --- 4. PHONE NUMBER FORMATTING (Updated for multiple inputs) ---
+const phoneInputs = document.querySelectorAll('#phone-input, .phone-input-field');
+
+phoneInputs.forEach(inputEl => {
+    inputEl.addEventListener('input', (e) => {
+        let input = e.target.value.replace(/\D/g, ''); 
+        let size = input.length;
+        if (size === 0) { e.target.value = ''; return; }
+        
+        // Formatting logic
+        if (size < 4) { 
+            input = `(${input}`; 
+        } else if (size < 7) { 
+            input = `(${input.substring(0, 3)}) ${input.substring(3, 6)}`; 
+        } else { 
+            input = `(${input.substring(0, 3)}) ${input.substring(3, 6)}-${input.substring(6, 10)}`; 
+        }
+        
+        e.target.value = input;
+    });
+});
 
     // --- 5. STORY CARD CLICK (Mobile) ---
     const storyCards = document.querySelectorAll('.story-card');
