@@ -79,8 +79,6 @@ nav {
     flex-shrink: 0;
     margin-left: 20px;
 }
-
-/* Keep the borders on the wrapper now, not the UL */
 .nav-wrapper {
     position: relative;
     width: 100%;
@@ -118,7 +116,7 @@ nav {
 .nav-wrapper.search-active .search-bar-container {
     transform: translateY(0);
 }
-/* Styling the actual search input field */
+
 .search-input {
     flex: 1;
     background: transparent;
@@ -374,7 +372,6 @@ nav a {
 
 .grid-container {
     display: grid;
-    /* 2 columns for desktop */
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
 }
@@ -412,7 +409,7 @@ nav a {
     font-size: 0.95rem;
     margin: 0;
 }
-/* --- 1. TABLET MEDIA STATE --- */
+
 @media (max-width: 1100px) {
     .grid-container {
         grid-template-columns: repeat(2, 1fr);
@@ -422,7 +419,6 @@ nav a {
     }
 }
 
-/* --- 2. MOBILE MEDIA STATE --- */
 @media (max-width: 800px) {
     .horizontal-scroll-wrapper{
        padding: 0 20px 40px 20px;
@@ -523,8 +519,6 @@ nav a {
         width: 100%;
     }
 }
-
-/* LATEST STORIES BAR */
 .latest-stories-bar {
     background-color: #0d0f0e;
     padding: 30px 0 80px 0;
@@ -549,8 +543,6 @@ nav a {
     letter-spacing: 2px;
     margin: 0;
 }
-
-/* THE SCROLL FEATURE */
 .horizontal-scroll-wrapper {
     display: flex;
     flex-wrap: nowrap;    
@@ -616,7 +608,6 @@ nav a {
         height: 100%; 
     }
 }
-/*end*/
 .story-details {
    position: absolute;
    bottom: 0;
@@ -741,7 +732,6 @@ nav a {
     font-weight: bold;
     white-space: nowrap;
 }
-/* --- STICKY NAV SEARCH ADJUSTMENTS --- */
 
 #sticky-menu .nav-wrapper {
     position: relative;
@@ -778,7 +768,6 @@ nav a {
 .story-card[style*="outline"] {
     animation: foundPulse 1.5s ease-in-out;
 }
-/*POP UP*/
 
 .modal-overlay {
     position: fixed;
