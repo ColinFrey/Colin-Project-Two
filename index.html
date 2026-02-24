@@ -21,17 +21,21 @@
     <h1 class="modal-title">DAILY INK</h1>
     <p class="modal-desc">Notes on featured artists, exclusive shop drops, and craft tips delivered to your inbox.</p>
     
-    <form class="modal-form" id="modal-form">
-      <input type="text" placeholder="Full Name" required>
-      <input type="email" placeholder="Email Address" required>
+   <form class="modal-form" id="modal-form">
+  <label for="modal-name" class="visually-hidden">Full Name</label>
+  <input type="text" id="modal-name" placeholder="Full Name" required>
 
-      <div class="phone-row">
-        <input type="tel" id="phone-input" placeholder="Phone Number (Optional)" maxlength="14">
-        <label class="sms-toggle">
-          <input type="checkbox">
-          <span class="sms-label">SMS Alerts</span>
-        </label>
-      </div>
+  <label for="modal-email" class="visually-hidden">Email Address</label>
+  <input type="email" id="modal-email" placeholder="Email Address" required>
+
+  <div class="phone-row">
+    <label for="phone-input" class="visually-hidden">Phone Number</label>
+    <input type="tel" id="phone-input" placeholder="Phone Number (Optional)" maxlength="14">
+    <label class="sms-toggle">
+      <input type="checkbox" aria-label="Receive SMS Alerts">
+      <span class="sms-label">SMS Alerts</span>
+    </label>
+  </div>
       <button type="submit">Join the Newsletter</button>
     </form>
   </div>
@@ -43,11 +47,15 @@
     <h2 class="modal-title submission-header">Showcase Your Talent</h2>
     <p class="modal-desc">Tell us about your craft. We’re looking for stories as much as skill.</p>
     
-    <form class="modal-form" id="artist-form">
-      <input type="text" id="artist-name-input" placeholder="Full Name" required>
-      <input type="email" id="artist-email" placeholder="Email Address" required>
-      <textarea id="artist-statement" rows="4" placeholder="What does your work represent?" required></textarea>
+   <form class="modal-form" id="artist-form">
+  <label for="artist-name-input" class="visually-hidden">Full Name</label>
+  <input type="text" id="artist-name-input" placeholder="Full Name" required>
 
+  <label for="artist-email" class="visually-hidden">Email Address</label>
+  <input type="email" id="artist-email" placeholder="Email Address" required>
+
+  <label for="artist-statement" class="visually-hidden">Artist Statement</label>
+  <textarea id="artist-statement" rows="4" placeholder="What does your work represent?" required></textarea>
       <div class="file-upload-container">
         <label for="portfolio-file" class="file-label">
           <span class="file-custom-btn">Attach Portfolio</span>
@@ -314,16 +322,20 @@
       </div>
       
       <form class="banner-form">
-        <input type="text" placeholder="Full Name" required>
-        <input type="email" placeholder="Email Address" required>
-        
-        <div class="banner-phone-group">
-          <input type="tel" class="phone-input-field" placeholder="Phone (Optional)" maxlength="14">
-          <label class="banner-sms">
-            <input type="checkbox">
-            <span>SMS</span>
-          </label>
-        </div>
+  <label for="footer-name" class="visually-hidden">Full Name</label>
+  <input type="text" id="footer-name" placeholder="Full Name" required>
+
+  <label for="footer-email" class="visually-hidden">Email Address</label>
+  <input type="email" id="footer-email" placeholder="Email Address" required>
+  
+  <div class="banner-phone-group">
+    <label for="footer-phone" class="visually-hidden">Phone Number</label>
+    <input type="tel" id="footer-phone" class="phone-input-field" placeholder="Phone (Optional)" maxlength="14">
+    <label class="banner-sms">
+      <input type="checkbox" aria-label="Subscribe to SMS updates">
+      <span>SMS</span>
+    </label>
+  </div>
         
         <button type="submit">Subscribe</button>
       </form>

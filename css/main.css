@@ -22,6 +22,7 @@ h2 {
     margin: -1px;
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
     border: 0; 
 }
 .no-scroll{
@@ -131,7 +132,6 @@ nav {
     padding-left: 5px;
 }
 
-/* Styling the close (X) button */
 .search-close {
     background: none;
     border: none;
@@ -147,7 +147,6 @@ nav {
     color: #d2eaa7;
 }
 
-/* Ensure the search trigger behaves like a link */
 .search-trigger {
     display: flex;
     align-items: center;
@@ -323,7 +322,7 @@ nav a {
     color: white;
     text-transform: uppercase;
     letter-spacing: 2.5px;
-    margin-bottom: 15px !important;
+    margin-bottom: 15px;
     font-weight: 700;
     line-height: 1.1;
 }
@@ -919,15 +918,15 @@ nav a {
 }
 
 .modal-hidden {
-    opacity: 0 !important;
-    pointer-events: none !important;
-    visibility: hidden !important;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
 }
 
 .submission-header {
-    font-family: "Gloock", serif !important;
-    font-size: clamp(1.8rem, 5vw, 3rem) !important;
-    letter-spacing: 1px !important;
+    font-family: "Gloock", serif;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    letter-spacing: 1px;
     margin-bottom: 20px;
 }
 
