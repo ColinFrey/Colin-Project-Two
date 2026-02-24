@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- 1. SEARCH BAR TOGGLE ---
     const searchTriggers = document.querySelectorAll('.search-trigger');
     const searchCloses = document.querySelectorAll('.search-close');
 
@@ -17,14 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const wrapper = close.closest('.nav-wrapper');
             if (wrapper) {
                 wrapper.classList.remove('search-active');
-                // Added: Empties the input when closing
                 const input = wrapper.querySelector('input');
                 if(input) input.value = '';
             }
         });
     });
 
-    // --- 2. STICKY NAVIGATION & HAMBURGER MENU ---
     const stickyContainer = document.getElementById('sticky-nav-container');
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const stickyMenu = document.getElementById('sticky-menu');
@@ -48,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 3. MODAL LOGIC ---
     const newsletterModal = document.getElementById('newsletter-modal');
     const submissionModal = document.getElementById('submission-modal');
     const closeNewsletter = document.getElementById('close-modal');
@@ -88,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-   // --- 4. PHONE NUMBER FORMATTING (Updated for multiple inputs) ---
 const phoneInputs = document.querySelectorAll('#phone-input, .phone-input-field');
 
 phoneInputs.forEach(inputEl => {
@@ -97,7 +91,6 @@ phoneInputs.forEach(inputEl => {
         let size = input.length;
         if (size === 0) { e.target.value = ''; return; }
         
-        // Formatting logic
         if (size < 4) { 
             input = `(${input}`; 
         } else if (size < 7) { 
@@ -110,7 +103,6 @@ phoneInputs.forEach(inputEl => {
     });
 });
 
-    // --- 5. STORY CARD CLICK (Mobile) ---
     const storyCards = document.querySelectorAll('.story-card');
     storyCards.forEach(card => {
         card.addEventListener('click', () => {
@@ -118,7 +110,6 @@ phoneInputs.forEach(inputEl => {
         });
     });
 
-    // --- 6. ARCHIVE SEARCH LOGIC ---
     window.handleSearch = function(event, inputId) {
         event.preventDefault();
         const inputField = document.getElementById(inputId);
@@ -147,7 +138,6 @@ phoneInputs.forEach(inputEl => {
             alert("No artists or materials matching '" + searchTerm + "' found.");
         }
 
-        // Close search bar and empty it
         const wrapper = inputField.closest('.nav-wrapper');
         if (wrapper) {
             wrapper.classList.remove('search-active');
