@@ -990,25 +990,22 @@ nav a {
     color: rgba(255, 255, 255, 0.5);
     font-style: italic;
 }
-/* --- ADD THIS NEW SECTION --- */
-/* 1. The Full-Width Black Frame */
+
 .community-banner {
     grid-column: 1 / -1; 
     margin-top: 60px;
-    margin-bottom: 60px;
-    
-    /* This padding creates the "surround" effect (80px black bar on top/bottom) */
+    margin-bottom: 0px;
     padding: 80px 0; 
-    
     position: relative;
-    background-color: #0d0f0e; /* Archive Black */
-    
-    /* Full-width breakout trick */
+    background-color: #0d0f0e;
     box-shadow: 0 0 0 100vmax #0d0f0e;
-    clip-path: inset(0 -100vmax); 
+    clip-path: inset(0 -100vmax 0 -100vmax); 
 }
-
-/* 2. The Shorter "Join" Box */
+footer{
+    width: 100%;
+    overflow: hidden;
+    display: block;
+}
 .banner-content {
     max-width: 1000px; 
     margin: 0 auto;
