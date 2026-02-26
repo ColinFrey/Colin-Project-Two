@@ -494,7 +494,54 @@ nav a {
     width: 100%;
     margin-top: 20px;
     border-top: 1px solid rgba(255,255,255,0.08);
+    position: relative;
+    overflow: hidden;
  
+}
+.latest-stories-bar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(13, 15, 14, 0) 0%, rgba(13, 15, 14, 1) 100%);
+    z-index: 10; 
+    pointer-events: none; 
+}
+
+/* 2. THE SCROLL INDICATOR */
+.scroll-indicator {
+    position: absolute;
+    right: 25px; 
+    top: 55%;    
+    transform: translateY(-50%);
+    z-index: 20; 
+    color: #d2eaa7; 
+    pointer-events: none; 
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scroll-indicator svg {
+    width: 50px;
+    height: 50px;
+    filter: drop-shadow(0 0 15px rgba(210, 234, 167, 0.4));
+    animation: nudgeArrow 2s infinite ease-in-out;
+}
+.scroll-indicator.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+@media (max-width: 600px) {
+    .latest-stories-bar::after {
+        width: 80px; 
+    }
+    .scroll-indicator {
+        right: 15px;
+    }
 }
 
 .stories-header {
@@ -1161,4 +1208,22 @@ html {
 #archive, #tips, #community {
     scroll-margin-top: 100px;
 }
-
+.scroll-indicator{
+    position: absolute;
+    right: 30px; 
+    top: 55%;    
+    transform: translateY(-50%);
+    z-index: 20; 
+    color: #d2eaa7; 
+    pointer-events: none; 
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.scroll-indicator svg {
+    width: 50px;
+    height: 50px;
+    filter: drop-shadow(0 0 10px rgba(0,0,0,0.8));
+    animation: nudgeArrow 2s infinite ease-in-out;
+}

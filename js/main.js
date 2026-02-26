@@ -94,8 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => openModal(newsletterModal), 2000);
 
     // --- FORM SUBMISSIONS ---
-
-    // 1. Newsletter Forms (Modal, Footer Banner, Signup)
     const newsletterForms = document.querySelectorAll('#modal-form, .banner-form, .signup-form');
     newsletterForms.forEach(form => {
         form.addEventListener('submit', (e) => {
@@ -109,7 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 2. Artist Application Form
     const artistForm = document.getElementById('artist-form');
     if (artistForm) {
         artistForm.addEventListener('submit', (e) => {
@@ -128,13 +125,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- REAPPEARING SCROLL INDICATOR LOGIC ---
+    const scrollWrapper = document.querySelector('.horizontal-scroll-wrapper');
+    const scrollHint = document.getElementById('archive-scroll-hint');
+
+    if (scrollWrapper && scrollHint) {
+        scrollWrapper.addEventListener('scroll', () => {
+            // Toggles visibility based on scroll position
+            // Shows arrow only when the user is at the far left
+            if (scrollWrapper.scrollLeft > 25) {
+                scrollHint.classList.add('is-hidden');
+            } else {
+                scrollHint.classList.remove('is-hidden');
+            }
+        }, { passive: true });
+    }
+
     // --- BUTTON EVENT LISTENERS ---
     document.getElementById('close-modal')?.addEventListener('click', () => closeModal(newsletterModal));
     document.getElementById('close-submission')?.addEventListener('click', () => closeModal(submissionModal));
     document.getElementById('close-success')?.addEventListener('click', () => closeModal(successModal));
     document.getElementById('success-confirm-btn')?.addEventListener('click', () => closeModal(successModal));
 
-    // Close on background click
     window.addEventListener('click', (e) => {
         if (e.target.classList.contains('modal-overlay')) {
             closeModal(newsletterModal);
@@ -143,7 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Open submission modal from hero button
     const applyBtn = document.querySelector('.btn-submit');
     if (applyBtn && !applyBtn.closest('#success-modal')) {
         applyBtn.addEventListener('click', (e) => {
@@ -164,7 +175,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- PHONE MASKING (US FORMAT) ---
+    // --- PHONE MASKING ---
     const phoneInputs = document.querySelectorAll('#phone-input, .phone-input-field, #footer-phone');
     phoneInputs.forEach(inputEl => {
         inputEl.addEventListener('input', (e) => {
