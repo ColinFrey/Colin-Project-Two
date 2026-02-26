@@ -14,6 +14,7 @@ h2 {
     margin: 0; 
 }
 
+
 .visually-hidden {
    position: absolute;
     width: 1px;
@@ -387,7 +388,7 @@ nav a {
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
     .horizontal-scroll-wrapper{
        padding: 0 20px 40px 20px;
        scroll-padding: 0 20px;
@@ -1133,4 +1134,23 @@ footer{
 
 .banner-form button:hover {
     background: #d2eaa7; 
+}
+
+@media (min-width: 1024px) {
+    #success-modal .modal-title {
+        font-size: 2.5rem; 
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+
+    #success-modal .modal-desc {
+        font-size: 0.9rem;
+        max-width: 450px;
+    }
+
+    #success-modal #success-confirm-btn {
+        max-width: 200px;
+        margin: 20px auto 0 auto;
+        display: block;
+    }
 }

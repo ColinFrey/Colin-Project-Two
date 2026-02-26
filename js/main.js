@@ -52,8 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const submissionModal = document.getElementById('submission-modal');
     const successModal = document.getElementById('success-modal');
     
-    const successTitle = document.getElementById('success-title');
-    const successMsg = document.getElementById('success-message');
+    const successNewsletterContent = document.getElementById('success-newsletter-content');
+    const successSubmissionContent = document.getElementById('success-submission-content');
 
     const openModal = (modal) => {
         if (modal) {
@@ -69,22 +69,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Helper to show the "Thank You" pop-up with Gloock styling
     const showSuccess = (type) => {
+        // Close input modals
         closeModal(newsletterModal);
         closeModal(submissionModal);
 
+        // Toggle content visibility
         if (type === 'newsletter') {
-            successTitle.innerText = "Thank you for subscribing";
-            successMsg.innerText = "Check your inbox for the latest featured artists and craft tips.";
+            successNewsletterContent.style.display = 'block';
+            successSubmissionContent.style.display = 'none';
         } else {
-            successTitle.innerText = "Thank you for your submission";
-            successMsg.innerText = "Your portfolio has been received. Our team will review your work shortly.";
+            successNewsletterContent.style.display = 'none';
+            successSubmissionContent.style.display = 'block';
         }
-        
-        // Ensure the success title uses Gloock (matching "Showcase Your Talent")
-        successTitle.style.fontFamily = "'Gloock', serif";
-        successTitle.style.textTransform = "uppercase";
         
         openModal(successModal);
     };
@@ -119,7 +116,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('close-success')?.addEventListener('click', () => closeModal(successModal));
     document.getElementById('success-confirm-btn')?.addEventListener('click', () => closeModal(successModal));
 
-    // Global click-outside to close
     window.addEventListener('click', (e) => {
         if (e.target.classList.contains('modal-overlay')) {
             closeModal(newsletterModal);
@@ -128,16 +124,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // "Apply Now" button logic
     const applyBtn = document.querySelector('.btn-submit');
-    if (applyBtn) {
+    if (applyBtn && !applyBtn.closest('#success-modal')) {
         applyBtn.addEventListener('click', (e) => {
             e.preventDefault();
             openModal(submissionModal);
         });
     }
 
-    // File input visual feedback
     const fileInput = document.getElementById('portfolio-file');
     const fileNameDisplay = document.getElementById('file-name');
     if (fileInput) {
