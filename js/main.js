@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    
     const searchTriggers = document.querySelectorAll('.search-trigger');
     const searchCloses = document.querySelectorAll('.search-close');
 
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const stickyMenu = document.getElementById('sticky-menu');
     const heroSection = document.querySelector('.hero');
 
-    if (stickyContainer) {
+    if (stickyContainer && heroSection) {
         window.addEventListener('scroll', () => {
             const heroMidPoint = heroSection.offsetTop + (heroSection.offsetHeight / 2);
             if (window.scrollY > heroMidPoint) {
@@ -82,31 +83,38 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModal(submissionModal);
         }
     });
+    const phoneInputs = document.querySelectorAll('#phone-input, .phone-input-field');
 
-const phoneInputs = document.querySelectorAll('#phone-input, .phone-input-field');
-
-phoneInputs.forEach(inputEl => {
-    inputEl.addEventListener('input', (e) => {
-        let input = e.target.value.replace(/\D/g, ''); 
-        let size = input.length;
-        if (size === 0) { e.target.value = ''; return; }
-        
-        if (size < 4) { 
-            input = `(${input}`; 
-        } else if (size < 7) { 
-            input = `(${input.substring(0, 3)}) ${input.substring(3, 6)}`; 
-        } else { 
-            input = `(${input.substring(0, 3)}) ${input.substring(3, 6)}-${input.substring(6, 10)}`; 
-        }
-        
-        e.target.value = input;
+    phoneInputs.forEach(inputEl => {
+        inputEl.addEventListener('input', (e) => {
+            let input = e.target.value.replace(/\D/g, ''); 
+            let size = input.length;
+            if (size === 0) { e.target.value = ''; return; }
+            
+            if (size < 4) { 
+                input = `(${input}`; 
+            } else if (size < 7) { 
+                input = `(${input.substring(0, 3)}) ${input.substring(3, 6)}`; 
+            } else { 
+                input = `(${input.substring(0, 3)}) ${input.substring(3, 6)}-${input.substring(6, 10)}`; 
+            }
+            
+            e.target.value = input;
+        });
     });
-});
 
     const storyCards = document.querySelectorAll('.story-card');
     storyCards.forEach(card => {
         card.addEventListener('click', () => {
             card.classList.toggle('is-expanded');
+        });
+    });
+
+    const tipBoxes = document.querySelectorAll('.tip-box');
+
+    tipBoxes.forEach(box => {
+        box.addEventListener('click', function(e) {
+            this.classList.toggle('is-expanded');
         });
     });
 
@@ -124,7 +132,6 @@ phoneInputs.forEach(inputEl => {
             const specs = card.querySelector('.specs').textContent.toLowerCase();
 
             if (artistName.includes(searchTerm) || specs.includes(searchTerm)) {
-        
                 card.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
                 
                 card.style.outline = "2px solid #d2eaa7";

@@ -374,41 +374,9 @@ nav a {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
+    align-items: start;
 }
 
-.glass-box {
-    background-color: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(5px) brightness(1.4) saturate(1.5);
-    -webkit-backdrop-filter: blur(5px) brightness(1.4) saturate(1.5);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 40px;
-    min-height: 220px;
-    display: flex;
-    align-items: center;
-    transition: transform 0.3s ease, border 0.3s ease;
-}
-
-.glass-box:hover {
-    transform: translateY(-5px);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    background-color: rgba(255, 255, 255, 0.08);
-}
-
-.box-content h3 {
-    font-family: "Gloock", serif;
-    color: white;
-    font-size: 1.7rem;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-}
-
-.box-content p {
-    font-family: Arial, sans-serif;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.6;
-    font-size: 0.95rem;
-    margin: 0;
-}
 
 @media (max-width: 1100px) {
     .grid-container {
@@ -591,13 +559,93 @@ nav a {
     height: 100%;
     object-fit: cover;
 }
-/* Hover & Click Logic */
 .story-card.is-expanded .story-details {
     transform: translateY(100%); 
     opacity: 0;
 }
 .story-card.is-expanded .story-img {
     height: 100%; 
+}
+
+.glass-box {
+    background-color: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px) brightness(1.4) saturate(1.5);
+    -webkit-backdrop-filter: blur(5px) brightness(1.4) saturate(1.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px; 
+    min-height: 200px;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    align-self: flex-start;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.tip-box {
+    max-width: 420px; 
+    margin: 0 auto; 
+    width: 100%;
+}
+
+.box-content h3 {
+    font-family: "Gloock", serif;
+    color: white;
+    font-size: 2.2rem; 
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+
+.tip-summary {
+    font-size: 1.15rem; 
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+}
+.tip-details p {
+    font-size: 1.15rem; 
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 20px;
+}
+
+.tip-box::after {
+    content: "VIEW DETAILS +";
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-size: 0.65rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    color: #d2eaa7;
+    opacity: 0.6;
+}
+
+.tip-box.is-expanded::after {
+    content: "CLOSE —";
+    color: white;
+}
+
+.tip-details {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.5s ease cubic-bexier (0.4, 0, 0.2, 1);
+    border-top: 1px solid rgba(255,255,255,0); 
+}
+
+.tip-box.is-expanded .tip-details {
+    max-height: 600px; 
+    opacity: 1;
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    border-top-color: rgba(255,255,255,0.1); 
 }
 @media (hover: hover) {
     .story-card:hover .story-details {
@@ -1086,5 +1134,3 @@ footer{
 .banner-form button:hover {
     background: #d2eaa7; 
 }
-
-
