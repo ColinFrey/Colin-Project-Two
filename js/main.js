@@ -1,5 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
     
+    // --- UTILITIES & VALIDATION ---
+    const openModal = (modal) => {
+        if (modal) {
+            modal.classList.remove('modal-hidden');
+            document.body.classList.add('no-scroll');
+        }
+    };
+    const closeModal = (modal) => {
+        if (modal) {
+            modal.classList.add('modal-hidden');
+            document.body.classList.remove('no-scroll');
+        }
+    };
+    const validateEmail = (email) => {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!regex.test(email)) {
+            alert("please enter a valid email");
+            return false;
+        }
+        return true;
+    };
+
     // --- SEARCH LOGIC ---
     const searchTriggers = document.querySelectorAll('.search-trigger');
     const searchCloses = document.querySelectorAll('.search-close');
@@ -47,34 +69,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- MODAL & FORM SUCCESS LOGIC ---
+    // --- MODAL & FORM LOGIC ---
     const newsletterModal = document.getElementById('newsletter-modal');
     const submissionModal = document.getElementById('submission-modal');
     const successModal = document.getElementById('success-modal');
-    
     const successNewsletterContent = document.getElementById('success-newsletter-content');
     const successSubmissionContent = document.getElementById('success-submission-content');
 
-    const openModal = (modal) => {
-        if (modal) {
-            modal.classList.remove('modal-hidden');
-            document.body.classList.add('no-scroll');
-        }
-    };
-
-    const closeModal = (modal) => {
-        if (modal) {
-            modal.classList.add('modal-hidden');
-            document.body.classList.remove('no-scroll');
-        }
-    };
-
     const showSuccess = (type) => {
-        // Close input modals
         closeModal(newsletterModal);
         closeModal(submissionModal);
 
-        // Toggle content visibility
         if (type === 'newsletter') {
             successNewsletterContent.style.display = 'block';
             successSubmissionContent.style.display = 'none';
@@ -82,40 +87,54 @@ document.addEventListener('DOMContentLoaded', () => {
             successNewsletterContent.style.display = 'none';
             successSubmissionContent.style.display = 'block';
         }
-        
         openModal(successModal);
     };
 
-    // Auto-open newsletter after 2 seconds
+    // Auto-open newsletter modal after 2 seconds
     setTimeout(() => openModal(newsletterModal), 2000);
 
-    // Form Submissions
+    // --- FORM SUBMISSIONS ---
+
+    // 1. Newsletter Forms (Modal, Footer Banner, Signup)
     const newsletterForms = document.querySelectorAll('#modal-form, .banner-form, .signup-form');
     newsletterForms.forEach(form => {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            showSuccess('newsletter');
-            form.reset();
+            const emailInput = form.querySelector('input[type="email"]');
+            
+            if (validateEmail(emailInput.value)) {
+                showSuccess('newsletter');
+                form.reset();
+            }
         });
     });
 
+    // 2. Artist Application Form
     const artistForm = document.getElementById('artist-form');
     if (artistForm) {
         artistForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            showSuccess('submission');
-            artistForm.reset();
-            const fileName = document.getElementById('file-name');
-            if(fileName) fileName.innerText = "No file chosen (PDF or ZIP)";
+            const emailInput = document.getElementById('artist-email');
+            
+            if (validateEmail(emailInput.value)) {
+                showSuccess('submission');
+                artistForm.reset();
+                const fileNameDisplay = document.getElementById('file-name');
+                if(fileNameDisplay) {
+                    fileNameDisplay.innerText = "No file chosen (PDF or ZIP)";
+                    fileNameDisplay.previousElementSibling.classList.remove('file-attached');
+                }
+            }
         });
     }
 
-    // Modal Close Buttons
+    // --- BUTTON EVENT LISTENERS ---
     document.getElementById('close-modal')?.addEventListener('click', () => closeModal(newsletterModal));
     document.getElementById('close-submission')?.addEventListener('click', () => closeModal(submissionModal));
     document.getElementById('close-success')?.addEventListener('click', () => closeModal(successModal));
     document.getElementById('success-confirm-btn')?.addEventListener('click', () => closeModal(successModal));
 
+    // Close on background click
     window.addEventListener('click', (e) => {
         if (e.target.classList.contains('modal-overlay')) {
             closeModal(newsletterModal);
@@ -124,6 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Open submission modal from hero button
     const applyBtn = document.querySelector('.btn-submit');
     if (applyBtn && !applyBtn.closest('#success-modal')) {
         applyBtn.addEventListener('click', (e) => {
@@ -132,6 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- FILE UPLOAD FEEDBACK ---
     const fileInput = document.getElementById('portfolio-file');
     const fileNameDisplay = document.getElementById('file-name');
     if (fileInput) {
@@ -143,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- PHONE MASKING ---
+    // --- PHONE MASKING (US FORMAT) ---
     const phoneInputs = document.querySelectorAll('#phone-input, .phone-input-field, #footer-phone');
     phoneInputs.forEach(inputEl => {
         inputEl.addEventListener('input', (e) => {
@@ -163,18 +184,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- UI INTERACTIVE ELEMENTS ---
-    const storyCards = document.querySelectorAll('.story-card');
-    storyCards.forEach(card => {
-        card.addEventListener('click', () => {
-            card.classList.toggle('is-expanded');
-        });
+    document.querySelectorAll('.story-card').forEach(card => {
+        card.addEventListener('click', () => card.classList.toggle('is-expanded'));
     });
 
-    const tipBoxes = document.querySelectorAll('.tip-box');
-    tipBoxes.forEach(box => {
-        box.addEventListener('click', function() {
-            this.classList.toggle('is-expanded');
-        });
+    document.querySelectorAll('.tip-box').forEach(box => {
+        box.addEventListener('click', () => box.classList.toggle('is-expanded'));
     });
 
     // --- SEARCH HANDLER ---

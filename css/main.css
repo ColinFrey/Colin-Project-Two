@@ -1154,3 +1154,11 @@ footer{
         display: block;
     }
 }
+html {
+    scroll-behavior: smooth;
+}
+
+#archive, #tips, #community {
+    scroll-margin-top: 100px;
+}
+
