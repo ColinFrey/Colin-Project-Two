@@ -1099,45 +1099,28 @@ footer {
 }
 
 /* --- 9. MEDIA QUERIES --- */
-@media (hover: hover) {
-    .story-card:hover .story-details {
-        transform: translateY(100%); 
-        opacity: 0;
-    }
-    .story-card:hover .story-img {
-        height: 100%; 
-    }
-}
 
-@media (min-width: 1024px) {
-    #success-modal .modal-title {
-        font-size: 2.5rem; 
-        letter-spacing: 1px;
-        margin-bottom: 15px;
-    }
-
-    #success-modal .modal-desc {
-        font-size: 0.9rem;
-        max-width: 450px;
-    }
-
-    #success-modal #success-confirm-btn {
-        max-width: 200px;
-        margin: 20px auto 0 auto;
-        display: block;
-    }
-}
-
-@media (max-width: 1100px) {
+/* 1. Tablet View (Mid-range) - Handling overlapping tip boxes */
+@media (max-width: 900px) {
     .grid-container {
-        grid-template-columns: repeat(2, 1fr);
+        /* Switch from 2 columns to 1 column so boxes don't overlap */
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
-    .hero-content {
-        gap: 20px; 
+
+    .glass-box {
+        max-width: 100%; /* Ensure boxes don't exceed container width */
     }
 }
 
+/* 2. Mobile View - Fixing horizontal overflow and alignment */
 @media (max-width: 600px) {
+    /* Ensure nothing ever forces a scrollbar to the right */
+    body, html {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
     .horizontal-scroll-wrapper {
        padding: 0 15px 30px 15px;
        scroll-padding-left: 15px;
@@ -1149,6 +1132,7 @@ footer {
        width: 100%;
        box-sizing: border-box;
     }
+    
     .story-card {
        flex: 0 0 75vw;
        max-width: 300px;
@@ -1156,56 +1140,65 @@ footer {
        scroll-snap-align: center;
        margin: 0;
     }
+    
     .story-details {
         padding: 15px;
         font-size: 0.9rem;
     }
+    
     .story-details h3 {
         font-size: 1.2rem;
     }
+    
     .stories-header {
         padding: 0 15px;  
         margin-bottom: 10px;
     }
+    
     .stories-header h2 {
         font-size: 1.8rem;
         padding: 0;        
         text-align: left;
     }
+    
     .description {
         font-size: 0.85rem;
         line-height: 1.4;
     }
-    .grid-container {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        width: 100%;
-    }
+    
     .info-grid-section {
         padding: 0 15px;
         margin-top: 40px;
+        width: 100%;
+        box-sizing: border-box; /* Crucial for mobile */
     }
+    
     .hero {
         padding-top: 160px; 
     }
+    
     .header-container {
         flex-direction: column; 
         gap: 10px;
         padding: 0 15px;
         align-items: center; 
-        overflow: hidden;
+        width: 100%;
+        box-sizing: border-box; /* Crucial for mobile */
     }
+    
     header h1 {
         font-size: clamp(2rem, 10vw, 3.5rem);
         text-align: center;
         width: 100%;
         white-space: normal; 
     }
+    
     nav {
         max-width: 100%; 
         margin-left: 0;   
         width: 100%;
     }
+    
     nav ul {
         gap: 15px;
         flex-wrap: wrap;
@@ -1213,44 +1206,73 @@ footer {
         border-top: 1px solid rgba(255,255,255,0.3);
         border-bottom: 1px solid rgba(255,255,255,0.3);
     }
+    
     .hero-content {
        flex-direction: column;
        align-items: center;
        padding: 0 15px;
+       gap: 30px;
+       width: 100%;
+       box-sizing: border-box;
     }
+    
     .hero-img-container {
         max-width: 100%;
         padding: 15px;
         padding-bottom: 30px;
         box-sizing: border-box;
     }
+    
     .hero-img-container img {
         width: 100%;
         height: auto;
     }
+    
     .latest-stories-bar {
         padding: 30px 0 60px 0;
     }
+    
     .banner-content {
         flex-direction: column;
         text-align: center;
         padding: 40px 15px;
+        width: 90%;
+        box-sizing: border-box;
     }
+    
     .banner-form {
         justify-content: center;
         width: 100%;
+        flex-direction: column; /* Stack input and button */
     }
-    .banner-form input, .banner-phone-group {
+    
+    .banner-form input, .banner-phone-group, .banner-form button {
         width: 100%;
+        box-sizing: border-box;
     }
+    
     .latest-stories-bar::after {
         width: 80px; 
     }
+    
     .scroll-indicator {
         right: 15px;
     }
+    
     .glass-box {
         max-width: 100%;
         padding: 20px;
+        box-sizing: border-box;
+    }
+}
+
+/* Hover fixes for touch devices */
+@media (hover: hover) {
+    .story-card:hover .story-details {
+        transform: translateY(100%); 
+        opacity: 0;
+    }
+    .story-card:hover .story-img {
+        height: 100%; 
     }
 }
