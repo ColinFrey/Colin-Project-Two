@@ -390,17 +390,17 @@ nav a {
 
 @media (max-width: 600px) {
     .horizontal-scroll-wrapper{
-       padding: 0 20px 40px 20px;
-       scroll-padding: 0 20px;
+       padding: 0 15px 30px 15px;
+       scroll-padding: 0 15px;
        gap: 15px;
        display: flex;
        align-items: center;
        overflow-x: auto;
     }
     .story-card {
-       flex: 0 0 80vw;
-       max-width: 380px;
-       height: 500px;
+       flex: 0 0 85vw;
+       max-width: 300px;
+       height: 450px;
         scroll-snap-align: center;
         margin: 0;
     }
@@ -437,8 +437,9 @@ nav a {
     .header-container {
         flex-direction: column; 
         gap: 10px;
-        padding: 0 10px;
+        padding: 0 15px;
         align-items: center; 
+        overflow: hidden;
     }
     header h1 {
         font-size: clamp(2rem, 12vw, 5rem);
@@ -1226,4 +1227,10 @@ html {
     height: 50px;
     filter: drop-shadow(0 0 10px rgba(0,0,0,0.8));
     animation: nudgeArrow 2s infinite ease-in-out;
+}
+
+html, body{
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
 }
