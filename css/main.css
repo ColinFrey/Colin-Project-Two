@@ -1,34 +1,29 @@
+/* --- 1. KEYFRAMES & GLOBAL --- */
 @keyframes gradientShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-h1 {
-    font-family: "Danfo", serif;
-    margin: 0;
-} 
-
-h2 {
-    font-family: "Gloock", serif;
-    margin: 0; 
+@keyframes nudgeArrow {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(10px); }
 }
 
-
-.visually-hidden {
-   position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0; 
+@keyframes foundPulse {
+    0% { transform: scale(1); outline: 2px solid #d2eaa7; }
+    50% { transform: scale(1.02); outline: 4px solid #d2eaa7; }
+    100% { transform: scale(1); outline: 2px solid transparent; }
 }
-.no-scroll{
-    overflow: hidden;
-    height: 100vh;
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
 }
 
 body {
@@ -42,6 +37,34 @@ body {
     background-attachment: fixed; 
 }
 
+h1 {
+    font-family: "Danfo", serif;
+    margin: 0;
+} 
+
+h2 {
+    font-family: "Gloock", serif;
+    margin: 0; 
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0; 
+}
+
+.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* --- 2. HEADER & NAVIGATION --- */
 header {
     position: absolute; 
     top: 0;
@@ -80,6 +103,16 @@ nav {
     flex-shrink: 0;
     margin-left: 20px;
 }
+
+nav a {
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
 .nav-wrapper {
     position: relative;
     width: 100%;
@@ -109,6 +142,7 @@ nav {
     transform: translateY(100%); 
     transition: transform 0.4s ease;
 }
+
 .nav-wrapper.search-active .nav-menu {
     transform: translateY(-100%);
     opacity: 0;
@@ -152,24 +186,18 @@ nav {
     cursor: pointer;
 }
 
-nav a {
-    text-decoration: none;
-    color: white;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
 .search-trigger svg {
     display: block;
     width: 1.1rem;        
     height: 1.1rem;
 }
+
 .search-trigger:hover {
     transform: scale(1.2);
     color: #d2eaa7;
 }
 
+/* --- 3. HERO SECTION --- */
 .hero {
     min-height: 100vh;
     width: 100%;
@@ -192,6 +220,16 @@ nav a {
     justify-content: space-between; 
     gap: 40px;
     box-sizing: border-box;
+}
+
+.hero-content > h2 {
+    font-size: 1.2rem; 
+    margin-top: 5px;
+}
+
+.hero-content > p {
+    font-size: 0.85rem;
+    margin-top: 0px;
 }
 
 .hero-sidebar {
@@ -269,35 +307,6 @@ nav a {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.footer-signup {
-    padding: 80px 20px;
-    background: rgba(0,0,0,0.4);
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.signup-container h2 {
-    font-size: 2.5rem;
-    letter-spacing: 4px;
-    margin-bottom: 10px;
-}
-
-.signup-form input {
-    padding: 15px;
-    width: 300px;
-    background: transparent;
-    border: 1px solid white;
-    color: white;
-}
-
-.signup-form button {
-    padding: 15px 30px;
-    background: white;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-}
-
 .hero-img-container {
     width: 100%;
     max-width: 535px;
@@ -313,6 +322,13 @@ nav a {
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
     box-sizing: border-box;
+}
+
+.hero-img-container img {
+    width: 100%;
+    max-width: 535px; 
+    height: auto;
+    display: block;
 }
 
 .featured-label {
@@ -334,13 +350,6 @@ nav a {
     font-weight: normal;
 }
 
-.hero-img-container img {
-    width: 100%;
-    max-width: 535px; 
-    height: auto;
-    display: block;
-}
-
 .img-description {
     margin-top: 15px;
 }
@@ -354,141 +363,7 @@ nav a {
     margin: 0;
 }
 
-.hero-content > h2 {
-    font-size: 1.2rem; 
-    margin-top: 5px;
-}
-
-.hero-content > p {
-    font-size: 0.85rem;
-    margin-top: 0px;
-}
-.info-grid-section {
-    width: 100%;
-    max-width: 1200px;
-    margin: 60px auto;
-    padding: 0 40px;
-    box-sizing: border-box;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    align-items: start;
-}
-
-
-@media (max-width: 1100px) {
-    .grid-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    .hero-content {
-        gap: 20px; 
-    }
-}
-
-@media (max-width: 600px) {
-    .horizontal-scroll-wrapper{
-       padding: 0 15px 30px 15px;
-       scroll-padding: 0 15px;
-       gap: 15px;
-       display: flex;
-       align-items: center;
-       overflow-x: auto;
-    }
-    .story-card {
-       flex: 0 0 85vw;
-       max-width: 300px;
-       height: 450px;
-        scroll-snap-align: center;
-        margin: 0;
-    }
-    .story-details{
-        padding:15px;
-    }
-    .story-details h3{
-        font-size: 1.2rem;
-    }
-    .stories-header {
-        padding: 0 20px;  
-        margin-bottom: 10px;
-    }
-
-    .stories-header h2 {
-        font-size: 1.8rem;
-        padding: 0;        
-        text-align: left;
-    }
-    .description{
-        font-size: 0.85rem;
-        line-height: 1.4;
-    }
-    .grid-container{
-        grid-template-columns: 1fr;
-    }
-    .info-grid-section{
-        padding: 0 20px;
-        margin-top: 40px;
-    }
-    .hero {
-        padding-top: 160px; 
-    }
-    .header-container {
-        flex-direction: column; 
-        gap: 10px;
-        padding: 0 15px;
-        align-items: center; 
-        overflow: hidden;
-    }
-    header h1 {
-        font-size: clamp(2rem, 12vw, 5rem);
-        text-align: center;
-        width: 100%;
-        white-space: normal; 
-    }
-    nav {
-        max-width: 100%; 
-        margin-left: 0;   
-        width: 100%;
-    }
-    nav ul {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center; 
-        border-top: 1px solid rgba(255,255,255,0.3);
-        border-bottom: 1px solid rgba(255,255,255,0.3);
-    }
-    .hero-content {
-       flex-direction: column;
-       align-items: center;
-    }
-    .hero-img-container {
-        max-width: 100%;
-        padding-bottom: 96px;
-        padding: 15px;
-        padding-bottom: 25px;
-        box-sizing: border-box;
-    }
-    .hero-img-container img{
-        width: 100%;
-        height: auto;
-    }
-    .latest-stories-bar{
-        padding: 30px 0 60px 0;
-    }
-      .banner-content {
-        flex-direction: column;
-        text-align: center;
-    }
-    .banner-form {
-        justify-content: center;
-        width: 100%;
-    }
-    .banner-form input, .banner-phone-group {
-        width: 100%;
-    }
-}
+/* --- 4. LATEST STORIES & GRID --- */
 .latest-stories-bar {
     background-color: #0d0f0e;
     padding: 30px 0 80px 0;
@@ -497,8 +372,8 @@ nav a {
     border-top: 1px solid rgba(255,255,255,0.08);
     position: relative;
     overflow: hidden;
- 
 }
+
 .latest-stories-bar::after {
     content: "";
     position: absolute;
@@ -511,7 +386,6 @@ nav a {
     pointer-events: none; 
 }
 
-/* 2. THE SCROLL INDICATOR */
 .scroll-indicator {
     position: absolute;
     right: 25px; 
@@ -532,17 +406,10 @@ nav a {
     filter: drop-shadow(0 0 15px rgba(210, 234, 167, 0.4));
     animation: nudgeArrow 2s infinite ease-in-out;
 }
+
 .scroll-indicator.is-hidden {
     opacity: 0;
     visibility: hidden;
-}
-@media (max-width: 600px) {
-    .latest-stories-bar::after {
-        width: 80px; 
-    }
-    .scroll-indicator {
-        right: 15px;
-    }
 }
 
 .stories-header {
@@ -552,7 +419,8 @@ nav a {
     box-sizing: border-box;
     text-align: left;
 }
-.stories-header h2{
+
+.stories-header h2 {
     color: #ffff;
     font-size: 2.2rem;
     font-family: "Gloock", serif;
@@ -560,6 +428,7 @@ nav a {
     letter-spacing: 2px;
     margin: 0;
 }
+
 .horizontal-scroll-wrapper {
     display: flex;
     flex-wrap: nowrap;    
@@ -574,11 +443,11 @@ nav a {
 .horizontal-scroll-wrapper::-webkit-scrollbar {
     height: 6px;
 }
+
 .horizontal-scroll-wrapper::-webkit-scrollbar-thumb {
     background: rgba(163, 177, 138, 0.3); 
     border-radius: 10px;
 }
-
 
 .story-card {
     flex: 0 0 400px;    
@@ -597,6 +466,10 @@ nav a {
     background: rgba(255, 255, 255, 0.07);
 }
 
+.story-card[style*="outline"] {
+    animation: foundPulse 1.5s ease-in-out;
+}
+
 .story-img {
     width: 100%;
     height: 100%;       
@@ -608,14 +481,83 @@ nav a {
     height: 100%;
     object-fit: cover;
 }
+
 .story-card.is-expanded .story-details {
     transform: translateY(100%); 
     opacity: 0;
 }
+
 .story-card.is-expanded .story-img {
     height: 100%; 
 }
 
+.story-details {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   box-sizing: border-box;
+   padding: 30px;
+   background: rgba(13,15,14,0.95);
+   backdrop-filter: blur(5px);
+   transition: transform 0.5s ease, opacity 0.5s ease;
+   z-index: 2;
+}
+
+.story-details h3 {
+    color: #fff;
+    margin: 0 0 10px 0;
+    font-family: "Gloock", serif;
+}
+
+.meta-label {
+    font-size: 0.75rem;
+    color: #d2eaa7;      
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.specs {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.specs strong {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.info-grid-section {
+    width: 100%;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    align-items: start;
+}
+
+/* --- 5. COMPONENTS & TIPS --- */
 .glass-box {
     background-color: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(5px) brightness(1.4) saturate(1.5);
@@ -656,6 +598,7 @@ nav a {
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 20px;
 }
+
 .tip-details p {
     font-size: 1.15rem; 
     line-height: 1.4;
@@ -684,7 +627,7 @@ nav a {
     max-height: 0;
     opacity: 0;
     overflow: hidden;
-    transition: all 0.5s ease cubic-bexier (0.4, 0, 0.2, 1);
+    transition: all 0.5s ease cubic-bezier(0.4, 0, 0.2, 1);
     border-top: 1px solid rgba(255,255,255,0); 
 }
 
@@ -696,64 +639,8 @@ nav a {
     padding-bottom: 30px;
     border-top-color: rgba(255,255,255,0.1); 
 }
-@media (hover: hover) {
-    .story-card:hover .story-details {
-        transform: translateY(100%); 
-        opacity: 0;
-    }
-    .story-card:hover .story-img {
-        height: 100%; 
-    }
-}
-.story-details {
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   width: 100%;
-   box-sizing: border-box;
-   padding: 30px;
-   background: rgba(13,15,14,0.95);
-   backdrop-filter: blur(5px);
-   transition: transform 0.5s ease, opacity 0.5s ease;
-   z-index: 2;
-}
-.story-details h3{
-    color: #fff;
-    margin: 0 0 10px 0;
-    font-family: "Gloock", serif;
-}
-.meta-label {
-    font-size: 0.75rem;
-    color: #d2eaa7;      
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-    font-weight: bold;
-}
 
-.specs {
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
-    margin-bottom: 15px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.specs strong {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-}
-
-.description {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.8);
-}
-
+/* --- 6. STICKY NAV & HAMBURGER --- */
 #sticky-nav-container {
     position: fixed;
     top: 20px;
@@ -807,7 +694,7 @@ nav a {
 }
 
 #sticky-menu.open {
-    max-height: 500px;
+    max-height: 600px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
@@ -848,24 +735,11 @@ nav a {
     width: 100%;
 }
 
-#sticky-menu.open {
-    max-height: 600px; 
-}
-
 #sticky-menu .nav-menu {
     transition: transform 0.4s ease, opacity 0.3s ease;
 }
 
-@keyframes foundPulse {
-    0% { transform: scale(1); outline: 2px solid #d2eaa7; }
-    50% { transform: scale(1.02); outline: 4px solid #d2eaa7; }
-    100% { transform: scale(1); outline: 2px solid transparent; }
-}
-
-.story-card[style*="outline"] {
-    animation: foundPulse 1.5s ease-in-out;
-}
-
+/* --- 7. MODALS --- */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -952,7 +826,8 @@ nav a {
 .modal-form button:hover {
     background: #ccc;
 }
-.phone-row{
+
+.phone-row {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -960,6 +835,7 @@ nav a {
     width: 100%;
     margin-top: 5px;
 }
+
 #phone-input {
     flex: 1;
 }
@@ -987,6 +863,7 @@ nav a {
     margin: 0;
     accent-color: #ffffff;
 }
+
 .close-modal {
     position: absolute;
     top: 15px;
@@ -1058,7 +935,8 @@ nav a {
     text-transform: uppercase;
     transition: 0.3s;
 }
-.file-custom-btn.file-attached{
+
+.file-custom-btn.file-attached {
     background: white;
     color: black;
     border-style: solid;
@@ -1076,6 +954,42 @@ nav a {
     font-style: italic;
 }
 
+/* --- 8. FOOTER & BANNERS --- */
+footer {
+    width: 100%;
+    overflow: hidden;
+    display: block;
+}
+
+.footer-signup {
+    padding: 80px 20px;
+    background: rgba(0,0,0,0.4);
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.signup-container h2 {
+    font-size: 2.5rem;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}
+
+.signup-form input {
+    padding: 15px;
+    width: 300px;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.signup-form button {
+    padding: 15px 30px;
+    background: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .community-banner {
     grid-column: 1 / -1; 
     margin-top: 60px;
@@ -1086,11 +1000,7 @@ nav a {
     box-shadow: 0 0 0 100vmax #0d0f0e;
     clip-path: inset(0 -100vmax 0 -100vmax); 
 }
-footer{
-    width: 100%;
-    overflow: hidden;
-    display: block;
-}
+
 .banner-content {
     max-width: 1000px; 
     margin: 0 auto;
@@ -1184,6 +1094,17 @@ footer{
     background: #d2eaa7; 
 }
 
+/* --- 9. MEDIA QUERIES --- */
+@media (hover: hover) {
+    .story-card:hover .story-details {
+        transform: translateY(100%); 
+        opacity: 0;
+    }
+    .story-card:hover .story-img {
+        height: 100%; 
+    }
+}
+
 @media (min-width: 1024px) {
     #success-modal .modal-title {
         font-size: 2.5rem; 
@@ -1202,35 +1123,119 @@ footer{
         display: block;
     }
 }
-html {
-    scroll-behavior: smooth;
+
+@media (max-width: 1100px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .hero-content {
+        gap: 20px; 
+    }
 }
 
-#archive, #tips, #community {
-    scroll-margin-top: 100px;
-}
-.scroll-indicator{
-    position: absolute;
-    right: 30px; 
-    top: 55%;    
-    transform: translateY(-50%);
-    z-index: 20; 
-    color: #d2eaa7; 
-    pointer-events: none; 
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.scroll-indicator svg {
-    width: 50px;
-    height: 50px;
-    filter: drop-shadow(0 0 10px rgba(0,0,0,0.8));
-    animation: nudgeArrow 2s infinite ease-in-out;
-}
-
-html, body{
-    max-width: 100%;
-    overflow-x: hidden;
-    position: relative;
+@media (max-width: 600px) {
+    .horizontal-scroll-wrapper {
+       padding: 0 15px 30px 15px;
+       scroll-padding: 0 15px;
+       gap: 15px;
+       display: flex;
+       align-items: center;
+       overflow-x: auto;
+    }
+    .story-card {
+       flex: 0 0 85vw;
+       max-width: 300px;
+       height: 450px;
+        scroll-snap-align: center;
+        margin: 0;
+    }
+    .story-details {
+        padding: 15px;
+    }
+    .story-details h3 {
+        font-size: 1.2rem;
+    }
+    .stories-header {
+        padding: 0 20px;  
+        margin-bottom: 10px;
+    }
+    .stories-header h2 {
+        font-size: 1.8rem;
+        padding: 0;        
+        text-align: left;
+    }
+    .description {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+    .info-grid-section {
+        padding: 0 20px;
+        margin-top: 40px;
+    }
+    .hero {
+        padding-top: 160px; 
+    }
+    .header-container {
+        flex-direction: column; 
+        gap: 10px;
+        padding: 0 15px;
+        align-items: center; 
+        overflow: hidden;
+    }
+    header h1 {
+        font-size: clamp(2rem, 12vw, 5rem);
+        text-align: center;
+        width: 100%;
+        white-space: normal; 
+    }
+    nav {
+        max-width: 100%; 
+        margin-left: 0;   
+        width: 100%;
+    }
+    nav ul {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center; 
+        border-top: 1px solid rgba(255,255,255,0.3);
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+    }
+    .hero-content {
+       flex-direction: column;
+       align-items: center;
+    }
+    .hero-img-container {
+        max-width: 100%;
+        padding-bottom: 96px;
+        padding: 15px;
+        padding-bottom: 25px;
+        box-sizing: border-box;
+    }
+    .hero-img-container img {
+        width: 100%;
+        height: auto;
+    }
+    .latest-stories-bar {
+        padding: 30px 0 60px 0;
+    }
+    .banner-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .banner-form {
+        justify-content: center;
+        width: 100%;
+    }
+    .banner-form input, .banner-phone-group {
+        width: 100%;
+    }
+    .latest-stories-bar::after {
+        width: 80px; 
+    }
+    .scroll-indicator {
+        right: 15px;
+    }
 }
