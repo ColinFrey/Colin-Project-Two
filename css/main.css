@@ -24,13 +24,12 @@ html, body {
     max-width: 100%;
     overflow-x: hidden;
     position: relative;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
-    padding: 0;
     font-family: Arial, sans-serif;
-    overflow-x: hidden;
     background: linear-gradient(-45deg, #090e0c, #132b25, #1b2826, #141b21, #0f0d12);
     background-size: 400% 400%;
     animation: gradientShift 25s ease infinite;
@@ -952,6 +951,11 @@ nav a {
     font-size: 0.75rem;
     color: rgba(255, 255, 255, 0.5);
     font-style: italic;
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 /* --- 8. FOOTER & BANNERS --- */
@@ -1136,27 +1140,31 @@ footer {
 @media (max-width: 600px) {
     .horizontal-scroll-wrapper {
        padding: 0 15px 30px 15px;
-       scroll-padding: 0 15px;
+       scroll-padding-left: 15px;
        gap: 15px;
        display: flex;
        align-items: center;
        overflow-x: auto;
+       -webkit-overflow-scrolling: touch;
+       width: 100%;
+       box-sizing: border-box;
     }
     .story-card {
-       flex: 0 0 85vw;
+       flex: 0 0 75vw;
        max-width: 300px;
-       height: 450px;
-        scroll-snap-align: center;
-        margin: 0;
+       height: 480px;
+       scroll-snap-align: center;
+       margin: 0;
     }
     .story-details {
         padding: 15px;
+        font-size: 0.9rem;
     }
     .story-details h3 {
         font-size: 1.2rem;
     }
     .stories-header {
-        padding: 0 20px;  
+        padding: 0 15px;  
         margin-bottom: 10px;
     }
     .stories-header h2 {
@@ -1170,9 +1178,11 @@ footer {
     }
     .grid-container {
         grid-template-columns: 1fr;
+        gap: 20px;
+        width: 100%;
     }
     .info-grid-section {
-        padding: 0 20px;
+        padding: 0 15px;
         margin-top: 40px;
     }
     .hero {
@@ -1186,7 +1196,7 @@ footer {
         overflow: hidden;
     }
     header h1 {
-        font-size: clamp(2rem, 12vw, 5rem);
+        font-size: clamp(2rem, 10vw, 3.5rem);
         text-align: center;
         width: 100%;
         white-space: normal; 
@@ -1206,12 +1216,12 @@ footer {
     .hero-content {
        flex-direction: column;
        align-items: center;
+       padding: 0 15px;
     }
     .hero-img-container {
         max-width: 100%;
-        padding-bottom: 96px;
         padding: 15px;
-        padding-bottom: 25px;
+        padding-bottom: 30px;
         box-sizing: border-box;
     }
     .hero-img-container img {
@@ -1224,6 +1234,7 @@ footer {
     .banner-content {
         flex-direction: column;
         text-align: center;
+        padding: 40px 15px;
     }
     .banner-form {
         justify-content: center;
@@ -1237,5 +1248,9 @@ footer {
     }
     .scroll-indicator {
         right: 15px;
+    }
+    .glass-box {
+        max-width: 100%;
+        padding: 20px;
     }
 }

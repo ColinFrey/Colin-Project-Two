@@ -15,68 +15,95 @@
 
 <body>
 
-  <div id="newsletter-modal" class="modal-overlay modal-hidden">
-    <div class="modal-content">
-      <button class="close-modal" id="close-modal">&times;</button>
-      <h1 class="modal-title">DAILY INK</h1>
-      <p class="modal-desc">Notes on featured artists, exclusive shop drops, and craft tips delivered to your inbox.</p>
+<div id="newsletter-modal" class="modal-overlay modal-hidden">
+  <div class="modal-content">
+    <button class="close-modal" id="close-modal">&times;</button>
+    <h1 class="modal-title">DAILY INK</h1>
+    <p class="modal-desc">Notes on featured artists, exclusive shop drops, and craft tips delivered to your inbox.</p>
+    
+   <form class="modal-form" id="modal-form">
+      <label for="modal-name" class="visually-hidden">Full Name</label>
+      <input type="text" id="modal-name" placeholder="Full Name" required>
+
+      <label for="modal-email" class="visually-hidden">Email Address</label>
+      <input type="email" id="modal-email" placeholder="Email Address" required>
+
+      <div class="phone-row">
+        <label for="phone-input" class="visually-hidden">Phone Number</label>
+        <input type="tel" id="phone-input" placeholder="Phone Number (Optional)" maxlength="14">
+        <label class="sms-toggle">
+          <input type="checkbox" aria-label="Receive SMS Alerts">
+          <span class="sms-label">SMS Alerts</span>
+        </label>
+      </div>
+      <button type="submit">Join the Newsletter</button>
+    </form>
+  </div>
+</div>
+
+<div id="submission-modal" class="modal-overlay modal-hidden">
+  <div class="modal-content">
+    <button class="close-modal" id="close-submission">&times;</button>
+    <h2 class="modal-title submission-header">Showcase Your Talent</h2>
+    <p class="modal-desc">Tell us about your craft. We’re looking for stories as much as skill.</p>
+    
+   <form class="modal-form" id="artist-form">
+      <label for="artist-name-input" class="visually-hidden">Full Name</label>
+      <input type="text" id="artist-name-input" placeholder="Full Name" required>
+
+      <label for="artist-email" class="visually-hidden">Email Address</label>
+      <input type="email" id="artist-email" placeholder="Email Address" required>
+
+      <label for="artist-statement" class="visually-hidden">Artist Statement</label>
+      <textarea id="artist-statement" rows="4" placeholder="What does your work represent?" required></textarea>
       
-      <form class="modal-form" id="modal-form">
-        <label for="modal-name" class="visually-hidden">Full Name</label>
-        <input type="text" id="modal-name" placeholder="Full Name" required>
+      <div class="file-upload-container">
+        <label for="portfolio-file" class="file-label">
+          <span class="file-custom-btn">Attach Portfolio</span>
+          <span id="file-name">No file chosen (PDF or ZIP)</span>
+        </label>
+        <input type="file" id="portfolio-file" accept=".pdf,.zip,.jpg,.png" required class="visually-hidden">
+      </div>
 
-        <label for="modal-email" class="visually-hidden">Email Address</label>
-        <input type="email" id="modal-email" placeholder="Email Address" required>
+      <button type="submit">Submit Application</button>
+    </form>
+  </div>
+</div>
 
-        <div class="phone-row">
-          <label for="phone-input" class="visually-hidden">Phone Number</label>
-          <input type="tel" id="phone-input" placeholder="Phone Number (Optional)" maxlength="14">
-          <label class="sms-toggle">
-            <input type="checkbox" aria-label="Receive SMS Alerts">
-            <span class="sms-label">SMS Alerts</span>
-          </label>
-        </div>
-        <button type="submit">Join the Newsletter</button>
+<div id="sticky-nav-container" class="hidden">
+  <button id="hamburger-btn" aria-label="Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <nav id="sticky-menu">
+    <div class="nav-wrapper">
+      <ul class="nav-menu">
+        <li><a href="#archive">Archive</a></li>
+        <li><a href="#tips">Tips</a></li>
+        <li><a href="#community">Community</a></li>
+        <li>
+          <a href="javascript:void(0)" aria-label="Search" class="search-trigger">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="10.5" cy="10.5" r="7.5"></circle>
+              <line x1="21" y1="21" x2="15.8" y2="15.8"></line>
+            </svg>
+          </a>
+        </li>
+      </ul>
+
+      <form class="search-bar-container" onsubmit="handleSearch(event, 'sticky-search')">
+        <input type="text" id="sticky-search" class="search-input" placeholder="SEARCH ARTISTS...">
+        <button type="button" class="search-close">&times;</button>
       </form>
     </div>
-  </div>
+  </nav>
+</div>
 
-  <div id="submission-modal" class="modal-overlay modal-hidden">
-    <div class="modal-content">
-      <button class="close-modal" id="close-submission">&times;</button>
-      <h2 class="modal-title submission-header">Showcase Your Talent</h2>
-      <p class="modal-desc">Tell us about your craft. We’re looking for stories as much as skill.</p>
-      
-      <form class="modal-form" id="artist-form">
-        <label for="artist-name-input" class="visually-hidden">Full Name</label>
-        <input type="text" id="artist-name-input" placeholder="Full Name" required>
-
-        <label for="artist-email" class="visually-hidden">Email Address</label>
-        <input type="email" id="artist-email" placeholder="Email Address" required>
-
-        <label for="artist-statement" class="visually-hidden">Artist Statement</label>
-        <textarea id="artist-statement" rows="4" placeholder="What does your work represent?" required></textarea>
-        
-        <div class="file-upload-container">
-          <label for="portfolio-file" class="file-label">
-            <span class="file-custom-btn">Attach Portfolio</span>
-            <span id="file-name">No file chosen (PDF or ZIP)</span>
-          </label>
-          <input type="file" id="portfolio-file" accept=".pdf,.zip,.jpg,.png" required class="visually-hidden">
-        </div>
-
-        <button type="submit">Submit Application</button>
-      </form>
-    </div>
-  </div>
-
-  <div id="sticky-nav-container" class="hidden">
-    <button id="hamburger-btn" aria-label="Menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <nav id="sticky-menu">
+<header>
+  <div class="header-container">
+    <h1>DAILY INK</h1>
+    <nav>
       <div class="nav-wrapper">
         <ul class="nav-menu">
           <li><a href="#archive">Archive</a></li>
@@ -92,297 +119,270 @@
           </li>
         </ul>
 
-        <form class="search-bar-container" onsubmit="handleSearch(event, 'sticky-search')">
-          <input type="text" id="sticky-search" class="search-input" placeholder="SEARCH ARTISTS...">
+        <form class="search-bar-container" onsubmit="handleSearch(event, 'main-search')">
+          <input type="text" id="main-search" class="search-input" placeholder="SEARCH ARTISTS...">
           <button type="button" class="search-close">&times;</button>
         </form>
       </div>
     </nav>
   </div>
+</header>
 
-  <header>
-    <div class="header-container">
-      <h1>DAILY INK</h1>
-      <nav>
-        <div class="nav-wrapper">
-          <ul class="nav-menu">
-            <li><a href="#archive">Archive</a></li>
-            <li><a href="#tips">Tips</a></li>
-            <li><a href="#community">Community</a></li>
-            <li>
-              <a href="javascript:void(0)" aria-label="Search" class="search-trigger">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="10.5" cy="10.5" r="7.5"></circle>
-                  <line x1="21" y1="21" x2="15.8" y2="15.8"></line>
-                </svg>
-              </a>
-            </li>
-          </ul>
-
-          <form class="search-bar-container" onsubmit="handleSearch(event, 'main-search')">
-            <input type="text" id="main-search" class="search-input" placeholder="SEARCH ARTISTS...">
-            <button type="button" class="search-close">&times;</button>
-          </form>
+<main>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-img-container">
+        <h2 class="featured-label">Featured Work of the Week <span class="artist-name">Colin Frey</span></h2>
+        <img src="img/WebDesignP2_IMG3.jpg" alt="Original art by Colin Frey">
+        <div class="img-description">
+          <p>Original art by Colin Frey. Hand-pulled Linocut on Paper, 2026.</p>
         </div>
-      </nav>
+      </div>
+
+      <div class="hero-sidebar">
+        <div class="sidebar-box submit-box">
+          <h3>Showcase Your Talent</h3>
+          <p>Submit your portfolio for a chance to be our next featured artist.</p>
+          <a href="#" class="btn-submit">Apply Now</a>
+        </div>
+
+        <div class="highlights-container">
+          <div class="mini-box">
+            <div class="mini-thumb">
+              <img src="img/WebDesignP2_IMG5.jpeg" alt="" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <span>Artist Highlight: Susan Xiao</span>
+          </div>
+          <div class="mini-box">
+            <div class="mini-thumb">
+              <img src="img/WebDesignP2_IMG6.jpeg" alt="" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <span>Artist Highlight: Georgia Cravey</span>
+          </div>
+          <div class="mini-box">
+            <div class="mini-thumb">
+              <img src="img/WebDesignP2_IMG4.jpeg" alt="" style="width:100%; height:100%; object-fit:cover;">
+            </div>
+            <span>Artist Highlight: Gabriela Ham</span>
+          </div>
+        </div>
+      </div> 
     </div>
-  </header>
+  </section>
 
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <div class="hero-img-container">
-          <h2 class="featured-label">Featured Work of the Week <span class="artist-name">Colin Frey</span></h2>
-          <img src="img/WebDesignP2_IMG3.jpg" alt="Original art by Colin Frey">
-          <div class="img-description">
-            <p>Original art by Colin Frey. Hand-pulled Linocut on Paper, 2026.</p>
-          </div>
-        </div>
+  <section id="archive" class="latest-stories-bar">
+    <div class="stories-header">
+      <h2>The Archive</h2>
+    </div>
 
-        <div class="hero-sidebar">
-          <div class="sidebar-box submit-box">
-            <h3>Showcase Your Talent</h3>
-            <p>Submit your portfolio for a chance to be our next featured artist.</p>
-            <a href="#" class="btn-submit">Apply Now</a>
-          </div>
-
-          <div class="highlights-container">
-            <div class="mini-box">
-              <div class="mini-thumb">
-                <img src="img/WebDesignP2_IMG5.jpeg" alt="" style="width:100%; height:100%; object-fit:cover;">
-              </div>
-              <span>Artist Highlight: Susan Xiao</span>
-            </div>
-            <div class="mini-box">
-              <div class="mini-thumb">
-                <img src="img/WebDesignP2_IMG6.jpeg" alt="" style="width:100%; height:100%; object-fit:cover;">
-              </div>
-              <span>Artist Highlight: Georgia Cravey</span>
-            </div>
-            <div class="mini-box">
-              <div class="mini-thumb">
-                <img src="img/WebDesignP2_IMG4.jpeg" alt="" style="width:100%; height:100%; object-fit:cover;">
-              </div>
-              <span>Artist Highlight: Gabriela Ham</span>
-            </div>
-          </div>
-        </div> 
-      </div>
-    </section>
-
-    <section id="archive" class="latest-stories-bar">
-      <div class="stories-header">
-        <h2>The Archive</h2>
-      </div>
-
-      <div class="scroll-indicator" id="archive-scroll-hint">
+    <div class="scroll-indicator" id="archive-scroll-hint">
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M5 12h14"></path>
-          <path d="m12 5 7 7-7 7"></path>
+            <path d="M5 12h14"></path>
+            <path d="m12 5 7 7-7 7"></path>
         </svg>
-      </div>
-      
-      <div class="horizontal-scroll-wrapper">
-        <article class="story-card">
-          <div class="story-img">
-            <img src="img/WebDesignP2_IMG5.jpeg" alt="Susan Xiao">
-          </div>
-          <div class="story-details">
-            <p class="meta-label">Highlighted Artist</p>
-            <h3>Susan Xiao</h3>
-            <div class="specs">
-              <span><strong>Materials:</strong> Reduction Linocut on Paper</span>
-              <span><strong>Created:</strong> 2025</span>
-            </div>
-            <p class="description">Xiao brilliantly uses monochromatic blue in her reduction print of a dragon, styled like the Queen of Diamonds, combining bold linework with mirrored, regal symmetry.</p>
-          </div>
-        </article>
-
-        <article class="story-card">
-          <div class="story-img">
-            <img src="img/WebDesignP2_IMG6.jpeg" alt="Georgia Cravy">
-          </div>
-          <div class="story-details">
-            <p class="meta-label">Highlighted Artist</p>
-            <h3>Georgia Cravy</h3>
-            <div class="specs">
-              <span><strong>Materials:</strong> Hand-pulled Linocut on Paper</span>
-              <span><strong>Created:</strong> 2024</span>
-            </div>
-            <p class="description">This artwork captures the bird’s strength through bold contrasts and detailed textures. It connects nature’s power with the quiet of the night..</p>
-          </div>
-        </article>
-
-        <article id="etching" class="story-card">
-          <div class="story-img">
-            <img src="img/WebDesignP2_IMG4.jpeg" alt="Gabriela Ham">
-          </div>
-          <div class="story-details">
-            <p class="meta-label">Highlighted Artist</p>
-            <h3>Gabriela Ham</h3>
-            <div class="specs">
-              <span><strong>Materials:</strong> Etching from Copper Plate on Paper</span>
-              <span><strong>Created:</strong> 2025</span>
-            </div>
-            <p class="description">This artwork reimagines Cinderella, highlighting her solitude and resilience. It shows the quiet strength beneath her struggles in a modern world.</p>
-          </div>
-        </article>
-
-        <article class="story-card">
-          <div class="story-img">
-            <img src="img/WebDesignP2_IMG7.png" alt="Lou Tonkin">
-          </div>
-          <div class="story-details">
-            <p class="meta-label">&nbsp;</p>
-            <h3>Lou Tonkin</h3>
-            <div class="specs">
-              <span><strong>Materials:</strong> Hand-pulled Linocut on Paper</span>
-              <span><strong>Created:</strong> 2018</span>
-            </div>
-            <p class="description">A detailed blackbird sits in the foreground within a garden. the piece is defined by rythmic, hand-carved textures that create a sense of movement in the grass and sky.</p>
-          </div>
-        </article>
-
-        <article class="story-card">
-          <div class="story-img">
-            <img src="img/WebDesignP2_IMG8.png" alt="Laura Boswell">
-          </div>
-          <div class="story-details">
-            <p class="meta-label">&nbsp;</p>
-            <h3>Laura Boswell</h3>
-            <div class="specs">
-              <span><strong>Materials:</strong> Reduction Linocut on Japanese Paper</span>
-              <span><strong>Created:</strong> 2017</span>
-            </div>
-            <p class="description">Boswell explores the quiet tension between permanent rock and the shifting ocean light. Her work is a meditative study on harmony in the British landscape.</p>
-          </div>
-        </article>
-
-        <article class="story-card">
-          <div class="story-img">
-            <img src="img/WebDesignP2_IMG9.png" alt="Frea Buckler">
-          </div>
-          <div class="story-details">
-            <p class="meta-label">&nbsp;</p>
-            <h3>Frea Buckler</h3>
-            <div class="specs">
-              <span><strong>Materials:</strong> Screenprint</span>
-              <span><strong>Created:</strong> 2019</span>
-            </div>
-            <p class="description">Buckler’s unfolding geometric forms serve as metaphors for emotional volatility, capturing a state of transition that balances rigid precision with spontaneous energy..</p>
-          </div>
-        </article>
-
-        <article class="story-card">
-          <div class="story-img">
-            <img src="img/WebDesignP2_IMG10.jpg" alt="Caledonia Curry">
-          </div>
-          <div class="story-details">
-            <p class="meta-label">&nbsp;</p>
-            <h3>Caledonia Curry</h3>
-            <div class="specs">
-              <span><strong>Materials:</strong> Screenprint Ink on Paper</span>
-              <span><strong>Created:</strong> 2019</span>
-            </div>
-            <p class="description">Curry uses portraiture to elevate the sancity of everyday human connection and familial bonds by combining intricate, hand-drawn textures with vibrant geometric colors and shapes.</p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="tips" class="info-grid-section">
-      <div class="grid-container">
-        <div class="glass-box tip-box">
-          <div class="box-content">
-            <h3>1. Materials</h3>
-            <p class="tip-summary">Picking the right lino and getting it ready to cut makes the whole process easier.</p>
-            <div class="tip-details">
-              <p>Traditional grey or brown lino is preferred because it cuts more cleanly and sharply than softcut. Trim it to size and lightly sand the surface before carving to help with ink coverage. Since it can harden over time, gently warm cold, brittle blocks before use or replace them if they are too hard to work with.</p>
-            </div>
-          </div>
+    </div>
+    
+    <div class="horizontal-scroll-wrapper">
+      <article class="story-card">
+        <div class="story-img">
+          <img src="img/WebDesignP2_IMG5.jpeg" alt="Susan Xiao">
         </div>
-
-        <div class="glass-box tip-box">
-          <div class="box-content">
-            <h3>2. Designing</h3>
-            <p class="tip-summary">Successful linocut designs are bold and balanced — lino shines with strong shapes.</p>
-            <div class="tip-details">
-              <p>Spend time looking at other linocuts to understand what works, and always consider how each part of your drawing functions in relief (what you leave uncut creates the image). Think about overall composition rather than isolated bits; something that drifts off the page when sketched in pencil can feel weak once carved and printed.</p>
-            </div>
+        <div class="story-details">
+          <p class="meta-label">Highlighted Artist</p>
+          <h3>Susan Xiao</h3>
+          <div class="specs">
+            <span><strong>Materials:</strong> Reduction Linocut on Paper</span>
+            <span><strong>Created:</strong> 2025</span>
           </div>
+          <p class="description">Xiao brilliantly uses monochromatic blue in her reduction print of a dragon, styled like the Queen of Diamonds, combining bold linework with mirrored, regal symmetry.</p>
         </div>
+      </article>
 
-        <div class="glass-box tip-box">
-          <div class="box-content">
-            <h3>3. Carving</h3>
-            <p class="tip-summary">Varying your cuts gives your print visual interest and clarity.</p>
-            <div class="tip-details">
-              <p>Aim for a balance of detailed and open areas, and cut in a systematic way to work more efficiently. Keep your tools sharp by stropping them regularly so they move cleanly through the lino. Begin with areas you feel confident carving, then move on to more difficult sections, checking your progress with paper rubbings.</p>
-            </div>
+      <article class="story-card">
+        <div class="story-img">
+          <img src="img/WebDesignP2_IMG6.jpeg" alt="Georgia Cravy">
+        </div>
+        <div class="story-details">
+          <p class="meta-label">Highlighted Artist</p>
+          <h3>Georgia Cravy</h3>
+          <div class="specs">
+            <span><strong>Materials:</strong> Hand-pulled Linocut on Paper</span>
+            <span><strong>Created:</strong> 2024</span>
           </div>
+          <p class="description">This artwork captures the bird’s strength through bold contrasts and detailed textures. It connects nature’s power with the quiet of the night..</p>
         </div>
+      </article>
 
-        <div class="glass-box tip-box">
-          <div class="box-content">
-            <h3>4. Inking</h3>
-            <p class="tip-summary">Good inking is as important as good carving: apply a smooth, even layer.</p>
-            <div class="tip-details">
-              <p>Use a soft roller to get even ink coverage and practice applying the right pressure before printing. When working with multiple color layers, allow each layer to dry completely before adding the next. Take your time, since rushing the carving or printing process usually affects the final result.</p>
-            </div>
+      <article id="etching" class="story-card">
+        <div class="story-img">
+          <img src="img/WebDesignP2_IMG4.jpeg" alt="Gabriela Ham">
+        </div>
+        <div class="story-details">
+          <p class="meta-label">Highlighted Artist</p>
+          <h3>Gabriela Ham</h3>
+          <div class="specs">
+            <span><strong>Materials:</strong> Etching from Copper Plate on Paper</span>
+            <span><strong>Created:</strong> 2025</span>
           </div>
+          <p class="description">This artwork reimagines Cinderella, highlighting her solitude and resilience. It shows the quiet strength beneath her struggles in a modern world.</p>
         </div>
-      </div>
-    </section>
-  </main>
+      </article>
 
-  <footer>
-    <div id="community" class="community-banner">
-      <div class="banner-content">
-        <div class="banner-text">
-          <h2 class="community-title">JOIN THE COMMUNITY</h2>
-          <p>Join the community for notes on featured artists, exclusive shop drops, and craft tips delivered to your inbox.</p>
+      <article class="story-card">
+        <div class="story-img">
+          <img src="img/WebDesignP2_IMG7.png" alt="Lou Tonkin">
         </div>
-        
-        <form class="banner-form">
-          <label for="footer-name" class="visually-hidden">Full Name</label>
-          <input type="text" id="footer-name" placeholder="Full Name" required>
-
-          <label for="footer-email" class="visually-hidden">Email Address</label>
-          <input type="email" id="footer-email" placeholder="Email Address" required>
-          
-          <div class="banner-phone-group">
-            <label for="footer-phone" class="visually-hidden">Phone Number</label>
-            <input type="tel" id="footer-phone" class="phone-input-field" placeholder="Phone (Optional)" maxlength="14">
-            <label class="banner-sms">
-              <input type="checkbox" aria-label="Subscribe to SMS updates">
-              <span>SMS</span>
-            </label>
+        <div class="story-details">
+          <p class="meta-label">&nbsp;</p>
+          <h3>Lou Tonkin</h3>
+          <div class="specs">
+            <span><strong>Materials:</strong> Hand-pulled Linocut on Paper</span>
+            <span><strong>Created:</strong> 2018</span>
           </div>
-          
-          <button type="submit">Subscribe</button>
-        </form>
+          <p class="description">A detailed blackbird sits in the foreground within a garden. the piece is defined by rythmic, hand-carved textures that create a sense of movement in the grass and sky.</p>
+        </div>
+      </article>
+
+      <article class="story-card">
+        <div class="story-img">
+          <img src="img/WebDesignP2_IMG8.png" alt="Laura Boswell">
+        </div>
+        <div class="story-details">
+          <p class="meta-label">&nbsp;</p>
+          <h3>Laura Boswell</h3>
+          <div class="specs">
+            <span><strong>Materials:</strong> Reduction Linocut on Japanese Paper</span>
+            <span><strong>Created:</strong> 2017</span>
+          </div>
+          <p class="description">Boswell explores the quiet tension between permanent rock and the shifting ocean light. Her work is a meditative study on harmony in the British landscape.</p>
+        </div>
+      </article>
+
+      <article class="story-card">
+        <div class="story-img">
+          <img src="img/WebDesignP2_IMG9.png" alt="Frea Buckler">
+        </div>
+        <div class="story-details">
+          <p class="meta-label">&nbsp;</p>
+          <h3>Frea Buckler</h3>
+          <div class="specs">
+            <span><strong>Materials:</strong> Screenprint</span>
+            <span><strong>Created:</strong> 2019</span>
+          </div>
+          <p class="description">Buckler’s unfolding geometric forms serve as metaphors for emotional volatility, capturing a state of transition that balances rigid precision with spontaneous energy..</p>
+        </div>
+      </article>
+
+      <article class="story-card">
+        <div class="story-img">
+          <img src="img/WebDesignP2_IMG10.jpg" alt="Caledonia Curry">
+        </div>
+        <div class="story-details">
+          <p class="meta-label">&nbsp;</p>
+          <h3>Caledonia Curry</h3>
+          <div class="specs">
+            <span><strong>Materials:</strong> Screenprint Ink on Paper</span>
+            <span><strong>Created:</strong> 2019</span>
+          </div>
+          <p class="description">Curry uses portraiture to elevate the sancity of everyday human connection and familial bonds by combining intricate, hand-drawn textures with vibrant geometric colors and shapes.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+ <section id="tips" class="info-grid-section">
+  <div class="grid-container">
+    <div class="glass-box tip-box">
+      <div class="box-content">
+        <h3>1. Materials</h3>
+        <p class="tip-summary">Picking the right lino and getting it ready to cut makes the whole process easier.</p>
+        <div class="tip-details">
+          <p>Traditional grey or brown lino is preferred because it cuts more cleanly and sharply than softcut. Trim it to size and lightly sand the surface before carving to help with ink coverage. Since it can harden over time, gently warm cold, brittle blocks before use or replace them if they are too hard to work with.</p>
+        </div>
       </div>
     </div>
-  </footer>
 
-  <div id="success-modal" class="modal-overlay modal-hidden">
-    <div class="modal-content" style="height: auto; min-height: unset; align-self: center;">
-      <button class="close-modal" id="close-success">&times;</button>
-      
-      <div id="success-newsletter-content" style="display: block;">
-        <h2 class="modal-title" style="font-family: 'Gloock', serif; text-transform: uppercase;">Thank you for subscribing</h2>
-        <p class="modal-desc">Check your inbox for the latest featured artists and craft tips.</p>
+    <div class="glass-box tip-box">
+      <div class="box-content">
+        <h3>2. Designing</h3>
+        <p class="tip-summary">Successful linocut designs are bold and balanced — lino shines with strong shapes.</p>
+        <div class="tip-details">
+          <p>Spend time looking at other linocuts to understand what works, and always consider how each part of your drawing functions in relief (what you leave uncut creates the image). Think about overall composition rather than isolated bits; something that drifts off the page when sketched in pencil can feel weak once carved and printed.</p>
+        </div>
       </div>
+    </div>
 
-      <div id="success-submission-content" style="display: none;">
-        <h2 class="modal-title" style="font-family: 'Gloock', serif; text-transform: uppercase;">Thank you for your submission</h2>
-        <p class="modal-desc">Your portfolio has been received. Our team will review your work shortly.</p>
+    <div class="glass-box tip-box">
+      <div class="box-content">
+        <h3>3. Carving</h3>
+        <p class="tip-summary">Varying your cuts gives your print visual interest and clarity.</p>
+        <div class="tip-details">
+          <p>Aim for a balance of detailed and open areas, and cut in a systematic way to work more efficiently. Keep your tools sharp by stropping them regularly so they move cleanly through the lino. Begin with areas you feel confident carving, then move on to more difficult sections, checking your progress with paper rubbings.</p>
+        </div>
       </div>
+    </div>
 
-      <button type="button" class="btn-submit" id="success-confirm-btn" style="border:none; cursor:pointer; width:100%; margin-top: 20px;">Close</button>
+    <div class="glass-box tip-box">
+      <div class="box-content">
+        <h3>4. Inking</h3>
+        <p class="tip-summary">Good inking is as important as good carving: apply a smooth, even layer.</p>
+        <div class="tip-details">
+          <p>Use a soft roller to get even ink coverage and practice applying the right pressure before printing. When working with multiple color layers, allow each layer to dry completely before adding the next. Take your time, since rushing the carving or printing process usually affects the final result.</p>
+        </div>
+      </div>
     </div>
   </div>
+</section>
+</main>
 
-  <script src="js/main.js"></script>
+<footer>
+  <div id="community" class="community-banner">
+    <div class="banner-content">
+      <div class="banner-text">
+        <h2 class="community-title">JOIN THE COMMUNITY</h2>
+        <p>Join the community for notes on featured artists, exclusive shop drops, and craft tips delivered to your inbox.</p>
+      </div>
+      
+      <form class="banner-form">
+        <label for="footer-name" class="visually-hidden">Full Name</label>
+        <input type="text" id="footer-name" placeholder="Full Name" required>
+
+        <label for="footer-email" class="visually-hidden">Email Address</label>
+        <input type="email" id="footer-email" placeholder="Email Address" required>
+        
+        <div class="banner-phone-group">
+          <label for="footer-phone" class="visually-hidden">Phone Number</label>
+          <input type="tel" id="footer-phone" class="phone-input-field" placeholder="Phone (Optional)" maxlength="14">
+          <label class="banner-sms">
+            <input type="checkbox" aria-label="Subscribe to SMS updates">
+            <span>SMS</span>
+          </label>
+        </div>
+        
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+</footer>
+
+<div id="success-modal" class="modal-overlay modal-hidden">
+  <div class="modal-content" style="height: auto; min-height: unset; align-self: center;">
+    <button class="close-modal" id="close-success">&times;</button>
+    
+    <div id="success-newsletter-content" style="display: block;">
+        <h2 class="modal-title" style="font-family: 'Gloock', serif; text-transform: uppercase;">Thank you for subscribing</h2>
+        <p class="modal-desc">Check your inbox for the latest featured artists and craft tips.</p>
+    </div>
+
+    <div id="success-submission-content" style="display: none;">
+        <h2 class="modal-title" style="font-family: 'Gloock', serif; text-transform: uppercase;">Thank you for your submission</h2>
+        <p class="modal-desc">Your portfolio has been received. Our team will review your work shortly.</p>
+    </div>
+
+    <button type="button" class="btn-submit" id="success-confirm-btn" style="border:none; cursor:pointer; width:100%; margin-top: 20px;">Close</button>
+  </div>
+</div>
+
+<script src="js/main.js"></script>
 </body>
 </html>
