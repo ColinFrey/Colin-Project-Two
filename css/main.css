@@ -1104,7 +1104,7 @@ footer {
 @media (max-width: 1024px) {
     /* Prevent overlapping in the tip grid */
     .grid-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Force 1 column on tablets */
         gap: 20px;
     }
 
@@ -1258,6 +1258,25 @@ footer {
     .banner-form input, .banner-phone-group, .banner-form button {
         width: 100%;
         box-sizing: border-box;
+    }
+    
+    /* --- Adjust Success Text for Mobile --- */
+    .modal-content h3, 
+    .modal-content p,
+    .submission-header {
+        font-size: 1rem; /* Smaller for mobile */
+    }
+}
+
+/* 3. Desktop View Adjustments */
+@media (min-width: 1025px) {
+    /* Smaller Success Messages on Desktop */
+    #success-modal .modal-title {
+        font-size: 2.5rem; /* Reduced from default */
+    }
+    
+    #success-modal .modal-desc {
+        font-size: 1rem; /* Adjusted for better readability */
     }
 }
 
