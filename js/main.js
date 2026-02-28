@@ -236,4 +236,19 @@ document.addEventListener('DOMContentLoaded', () => {
             inputField.value = '';
         }
     };
+// --- SMS TOGGLE LOGIC ---
+    const footerPhone = document.getElementById('footer-phone');
+    const smsCheck = document.getElementById('sms-check-footer');
+
+    if (footerPhone && smsCheck) {
+        smsCheck.addEventListener('change', () => {
+            if (smsCheck.checked) {
+                footerPhone.required = true;
+                footerPhone.placeholder = "Phone Required *";
+            } else {
+                footerPhone.required = false;
+                footerPhone.placeholder = "Phone (Optional)";
+            }
+        });
+    }
 });

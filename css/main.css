@@ -1266,6 +1266,37 @@ footer {
     .submission-header {
         font-size: 1rem; /* Smaller for mobile */
     }
+    .banner-phone-group {
+        width: 100% !important;
+        box-sizing: border-box;
+        display: flex; /* Ensures items stay side-by-side */
+        align-items: center;
+        padding-right: 10px; /* Space for the checkbox */
+    }
+
+    /* This allows the phone input to shrink so the checkbox stays inside */
+    .banner-phone-group input.phone-input-field {
+        flex: 1; 
+        min-width: 0; /* Forces the input to respect the flex container size */
+        width: 100%;
+        background: transparent;
+    }
+
+    /* Keeps the SMS label from squishing or wrapping awkwardly */
+    .banner-sms {
+        flex-shrink: 0;
+        margin-left: 8px;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .banner-sms input[type="checkbox"] {
+        width: 14px;
+        height: 14px;
+        margin: 0;
+    }
 }
 
 /* 3. Desktop View Adjustments */
