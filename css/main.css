@@ -1102,15 +1102,25 @@ footer {
 
 /* 1. Tablet View (Portrait & Small Laptop) - Fixing Overlapping Boxes */
 @media (max-width: 1024px) {
-    /* Prevent overlapping in the tip grid */
-    .grid-container {
-        grid-template-columns: 1fr; /* Force 1 column on tablets */
-        gap: 20px;
+    /* 1. Ensure the grid container does not exceed screen width */
+    .info-grid-section {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0 20px; /* Adjust padding to keep content contained */
     }
 
+    /* 2. Force 1 column on tablets so boxes don't overlap */
+    .grid-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        width: 100%;
+    }
+
+    /* 3. Ensure boxes scale down within the grid */
     .glass-box {
-        max-width: 100%;
-        min-height: auto; /* Allow height to adjust to content */
+        max-width: 100%; /* Important: let it fill the grid column */
+        min-height: auto;
+        box-sizing: border-box; /* Ensure padding doesn't push width out */
     }
 
     /* Adjust layout for tablet */
