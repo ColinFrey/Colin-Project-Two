@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- UTILITIES & VALIDATION ---
     const openModal = (modal) => {
         if (modal) {
             modal.classList.remove('modal-hidden');
@@ -22,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return true;
     };
 
-    // --- SEARCH LOGIC ---
     const searchTriggers = document.querySelectorAll('.search-trigger');
     const searchCloses = document.querySelectorAll('.search-close');
 
@@ -33,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (wrapper) wrapper.classList.add('search-active');
         });
     });
-
     searchCloses.forEach(close => {
         close.addEventListener('click', () => {
             const wrapper = close.closest('.nav-wrapper');
@@ -45,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- STICKY NAV LOGIC ---
     const stickyContainer = document.getElementById('sticky-nav-container');
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const stickyMenu = document.getElementById('sticky-menu');
@@ -62,20 +57,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-
     if (hamburgerBtn) {
         hamburgerBtn.addEventListener('click', () => {
             stickyMenu.classList.toggle('open');
         });
     }
 
-    // --- MODAL & FORM LOGIC ---
     const newsletterModal = document.getElementById('newsletter-modal');
     const submissionModal = document.getElementById('submission-modal');
     const successModal = document.getElementById('success-modal');
     const successNewsletterContent = document.getElementById('success-newsletter-content');
     const successSubmissionContent = document.getElementById('success-submission-content');
-
     const showSuccess = (type) => {
         closeModal(newsletterModal);
         closeModal(submissionModal);
@@ -90,10 +82,8 @@ document.addEventListener('DOMContentLoaded', () => {
         openModal(successModal);
     };
 
-    // Auto-open newsletter modal after 2 seconds
     setTimeout(() => openModal(newsletterModal), 2000);
 
-    // --- FORM SUBMISSIONS ---
     const newsletterForms = document.querySelectorAll('#modal-form, .banner-form, .signup-form');
     newsletterForms.forEach(form => {
         form.addEventListener('submit', (e) => {
@@ -106,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-
     const artistForm = document.getElementById('artist-form');
     if (artistForm) {
         artistForm.addEventListener('submit', (e) => {
@@ -125,14 +114,11 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- REAPPEARING SCROLL INDICATOR LOGIC ---
     const scrollWrapper = document.querySelector('.horizontal-scroll-wrapper');
     const scrollHint = document.getElementById('archive-scroll-hint');
 
     if (scrollWrapper && scrollHint) {
         scrollWrapper.addEventListener('scroll', () => {
-            // Toggles visibility based on scroll position
-            // Shows arrow only when the user is at the far left
             if (scrollWrapper.scrollLeft > 25) {
                 scrollHint.classList.add('is-hidden');
             } else {
@@ -141,12 +127,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     }
 
-    // --- BUTTON EVENT LISTENERS ---
     document.getElementById('close-modal')?.addEventListener('click', () => closeModal(newsletterModal));
     document.getElementById('close-submission')?.addEventListener('click', () => closeModal(submissionModal));
     document.getElementById('close-success')?.addEventListener('click', () => closeModal(successModal));
     document.getElementById('success-confirm-btn')?.addEventListener('click', () => closeModal(successModal));
-
     window.addEventListener('click', (e) => {
         if (e.target.classList.contains('modal-overlay')) {
             closeModal(newsletterModal);
@@ -154,7 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
             closeModal(successModal);
         }
     });
-
     const applyBtn = document.querySelector('.btn-submit');
     if (applyBtn && !applyBtn.closest('#success-modal')) {
         applyBtn.addEventListener('click', (e) => {
@@ -163,7 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- FILE UPLOAD FEEDBACK ---
     const fileInput = document.getElementById('portfolio-file');
     const fileNameDisplay = document.getElementById('file-name');
     if (fileInput) {
@@ -175,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- PHONE MASKING ---
     const phoneInputs = document.querySelectorAll('#phone-input, .phone-input-field, #footer-phone');
     phoneInputs.forEach(inputEl => {
         inputEl.addEventListener('input', (e) => {
@@ -194,7 +175,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // --- UI INTERACTIVE ELEMENTS ---
     document.querySelectorAll('.story-card').forEach(card => {
         card.addEventListener('click', () => card.classList.toggle('is-expanded'));
     });
@@ -203,7 +183,6 @@ document.addEventListener('DOMContentLoaded', () => {
         box.addEventListener('click', () => box.classList.toggle('is-expanded'));
     });
 
-    // --- SEARCH HANDLER ---
     window.handleSearch = function(event, inputId) {
         event.preventDefault();
         const inputField = document.getElementById(inputId);
@@ -236,7 +215,6 @@ document.addEventListener('DOMContentLoaded', () => {
             inputField.value = '';
         }
     };
-// --- SMS TOGGLE LOGIC ---
     const footerPhone = document.getElementById('footer-phone');
     const smsCheck = document.getElementById('sms-check-footer');
 

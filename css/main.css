@@ -1,25 +1,20 @@
-/* --- 1. KEYFRAMES & GLOBAL --- */
 @keyframes gradientShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
-
 @keyframes nudgeArrow {
     0%, 100% { transform: translateX(0); }
     50% { transform: translateX(10px); }
 }
-
 @keyframes foundPulse {
     0% { transform: scale(1); outline: 2px solid #d2eaa7; }
     50% { transform: scale(1.02); outline: 4px solid #d2eaa7; }
     100% { transform: scale(1); outline: 2px solid transparent; }
 }
-
 html {
     scroll-behavior: smooth;
 }
-
 html, body {
     max-width: 100%;
     overflow-x: hidden;
@@ -27,7 +22,6 @@ html, body {
     margin: 0;
     padding: 0;
 }
-
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(-45deg, #090e0c, #132b25, #1b2826, #141b21, #0f0d12);
@@ -35,17 +29,14 @@ body {
     animation: gradientShift 25s ease infinite;
     background-attachment: fixed; 
 }
-
 h1 {
     font-family: "Danfo", serif;
     margin: 0;
 } 
-
 h2 {
     font-family: "Gloock", serif;
     margin: 0; 
 }
-
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -57,13 +48,10 @@ h2 {
     white-space: nowrap;
     border: 0; 
 }
-
 .no-scroll {
     overflow: hidden;
     height: 100vh;
 }
-
-/* --- 2. HEADER & NAVIGATION --- */
 header {
     position: absolute; 
     top: 0;
@@ -72,7 +60,6 @@ header {
     padding: 10px 0; 
     z-index: 10;
 }
-
 .header-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -83,7 +70,6 @@ header {
     align-items: center;
     box-sizing: border-box;
 }
-
 header h1 {
     font-size: clamp(2rem, 8vw, 7.15rem); 
     color: white;
@@ -95,14 +81,12 @@ header h1 {
     white-space: nowrap;
     flex-shrink: 1;
 }
-
 nav {
     width: 100%;
     max-width: 450px;
     flex-shrink: 0;
     margin-left: 20px;
 }
-
 nav a {
     text-decoration: none;
     color: white;
@@ -111,7 +95,6 @@ nav a {
     font-weight: bold;
     letter-spacing: 1px;
 }
-
 .nav-wrapper {
     position: relative;
     width: 100%;
@@ -119,7 +102,6 @@ nav a {
     border-top: 2px solid rgba(255,255,255,0.3);
     border-bottom: 2px solid #ffffff4d;
 }
-
 .nav-menu {
     list-style: none;
     padding: 10px 0;
@@ -129,7 +111,6 @@ nav a {
     align-items: center;
     transition: transform 0.4s ease, opacity 0.3s ease;
 }
-
 .search-bar-container {
     position: absolute;
     top: 0;
@@ -141,16 +122,13 @@ nav a {
     transform: translateY(100%); 
     transition: transform 0.4s ease;
 }
-
 .nav-wrapper.search-active .nav-menu {
     transform: translateY(-100%);
     opacity: 0;
 }
-
 .nav-wrapper.search-active .search-bar-container {
     transform: translateY(0);
 }
-
 .search-input {
     flex: 1;
     background: transparent;
@@ -163,7 +141,6 @@ nav a {
     outline: none;
     padding-left: 5px;
 }
-
 .search-close {
     background: none;
     border: none;
@@ -174,29 +151,23 @@ nav a {
     line-height: 1;
     transition: color 0.3s ease;
 }
-
 .search-close:hover {
     color: #d2eaa7;
 }
-
 .search-trigger {
     display: flex;
     align-items: center;
     cursor: pointer;
 }
-
 .search-trigger svg {
     display: block;
     width: 1.1rem;        
     height: 1.1rem;
 }
-
 .search-trigger:hover {
     transform: scale(1.2);
     color: #d2eaa7;
 }
-
-/* --- 3. HERO SECTION --- */
 .hero {
     min-height: 100vh;
     width: 100%;
@@ -207,7 +178,6 @@ nav a {
     padding-top: 135px; 
     padding-bottom: 10px; 
 }
-
 .hero-content {
     max-width: 1200px;
     width: 100%;
@@ -220,17 +190,14 @@ nav a {
     gap: 40px;
     box-sizing: border-box;
 }
-
 .hero-content > h2 {
     font-size: 1.2rem; 
     margin-top: 5px;
 }
-
 .hero-content > p {
     font-size: 0.85rem;
     margin-top: 0px;
 }
-
 .hero-sidebar {
     flex: 1;
     max-width: 450px;
@@ -238,26 +205,22 @@ nav a {
     flex-direction: column;
     gap: 20px;
 }
-
 .sidebar-box {
     background-color: rgba(255,255,255,0.05);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.1);
     padding: 30px;
 }
-
 .submit-box h3 {
     font-family: "Gloock", serif;
     font-size: 1.8rem;
     margin-bottom: 10px;
 }
-
 .submit-box p {
     font-size: 0.9rem;
     color: rgba(255,255,255,0.7);
     margin-bottom: 20px;
 }
-
 .btn-submit {
     display: inline-block;
     padding: 12px 24px;
@@ -269,17 +232,14 @@ nav a {
     font-size: 0.8rem;
     transition: 0.3s;
 }
-
 .btn-submit:hover {
     background: #ccc;
 }
-
 .highlights-container {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
-
 .mini-box {
     display: flex;
     align-items: center;
@@ -291,21 +251,18 @@ nav a {
     padding: 12px;
     transition: all 0.3s ease;
 }
-
 .mini-thumb {
     width: 90px;
     height: 90px;
     background: rgba(255, 255, 255, 0.1);
     flex-shrink: 0;
 }
-
 .mini-box span {
     font-size: 1.1rem;
     font-weight: 800;
     color: rgba(255, 255, 255, 0.9); 
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
 }
-
 .hero-img-container {
     width: 100%;
     max-width: 535px;
@@ -322,14 +279,12 @@ nav a {
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
     box-sizing: border-box;
 }
-
 .hero-img-container img {
     width: 100%;
     max-width: 535px; 
     height: auto;
     display: block;
 }
-
 .featured-label {
     font-family: "Montserrat", sans-serif;
     font-size: 1.9rem;
@@ -340,7 +295,6 @@ nav a {
     font-weight: 700;
     line-height: 1.1;
 }
-
 .artist-name {
     display: block;
     font-size: 1.15rem;
@@ -348,11 +302,9 @@ nav a {
     letter-spacing: 1px;
     font-weight: normal;
 }
-
 .img-description {
     margin-top: 15px;
 }
-
 .img-description p {
     font-family: Arial, sans-serif;
     font-size: 0.9rem;
@@ -361,8 +313,6 @@ nav a {
     line-height: 1.4;
     margin: 0;
 }
-
-/* --- 4. LATEST STORIES & GRID --- */
 .latest-stories-bar {
     background-color: #0d0f0e;
     padding: 30px 0 80px 0;
@@ -372,7 +322,6 @@ nav a {
     position: relative;
     overflow: hidden;
 }
-
 .latest-stories-bar::after {
     content: "";
     position: absolute;
@@ -384,7 +333,6 @@ nav a {
     z-index: 10; 
     pointer-events: none; 
 }
-
 .scroll-indicator {
     position: absolute;
     right: 25px; 
@@ -398,19 +346,16 @@ nav a {
     align-items: center;
     justify-content: center;
 }
-
 .scroll-indicator svg {
     width: 50px;
     height: 50px;
     filter: drop-shadow(0 0 15px rgba(210, 234, 167, 0.4));
     animation: nudgeArrow 2s infinite ease-in-out;
 }
-
 .scroll-indicator.is-hidden {
     opacity: 0;
     visibility: hidden;
 }
-
 .stories-header {
     width: 100%;
     margin: 0 0 15px 0;
@@ -418,7 +363,6 @@ nav a {
     box-sizing: border-box;
     text-align: left;
 }
-
 .stories-header h2 {
     color: #ffff;
     font-size: 2.2rem;
@@ -427,7 +371,6 @@ nav a {
     letter-spacing: 2px;
     margin: 0;
 }
-
 .horizontal-scroll-wrapper {
     display: flex;
     flex-wrap: nowrap;    
@@ -438,16 +381,13 @@ nav a {
     scroll-snap-type: x mandatory; 
     -webkit-overflow-scrolling: touch; 
 }
-
 .horizontal-scroll-wrapper::-webkit-scrollbar {
     height: 6px;
 }
-
 .horizontal-scroll-wrapper::-webkit-scrollbar-thumb {
     background: rgba(163, 177, 138, 0.3); 
     border-radius: 10px;
 }
-
 .story-card {
     flex: 0 0 400px;    
     height: 550px;  
@@ -460,36 +400,29 @@ nav a {
     overflow: hidden;
     transition: background 0.3s ease;
 }
-
 .story-card:hover {
     background: rgba(255, 255, 255, 0.07);
 }
-
 .story-card[style*="outline"] {
     animation: foundPulse 1.5s ease-in-out;
 }
-
 .story-img {
     width: 100%;
     height: 100%;       
     overflow: hidden;
 }
-
 .story-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
 .story-card.is-expanded .story-details {
     transform: translateY(100%); 
     opacity: 0;
 }
-
 .story-card.is-expanded .story-img {
     height: 100%; 
 }
-
 .story-details {
    position: absolute;
    bottom: 0;
@@ -502,13 +435,11 @@ nav a {
    transition: transform 0.5s ease, opacity 0.5s ease;
    z-index: 2;
 }
-
 .story-details h3 {
     color: #fff;
     margin: 0 0 10px 0;
     font-family: "Gloock", serif;
 }
-
 .meta-label {
     font-size: 0.75rem;
     color: #d2eaa7;      
@@ -517,7 +448,6 @@ nav a {
     margin-bottom: 10px;
     font-weight: bold;
 }
-
 .specs {
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.5);
@@ -528,19 +458,16 @@ nav a {
     flex-direction: column;
     gap: 5px;
 }
-
 .specs strong {
     color: rgba(255, 255, 255, 0.9);
     font-size: 0.75rem;
     text-transform: uppercase;
 }
-
 .description {
     font-size: 0.95rem;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.8);
 }
-
 .info-grid-section {
     width: 100%;
     max-width: 1200px;
@@ -548,15 +475,12 @@ nav a {
     padding: 0 40px;
     box-sizing: border-box;
 }
-
 .grid-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
     align-items: start;
 }
-
-/* --- 5. COMPONENTS & TIPS --- */
 .glass-box {
     background-color: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(5px) brightness(1.4) saturate(1.5);
@@ -576,13 +500,11 @@ nav a {
     position: relative;
     overflow: hidden;
 }
-
 .tip-box {
     max-width: 420px; 
     margin: 0 auto; 
     width: 100%;
 }
-
 .box-content h3 {
     font-family: "Gloock", serif;
     color: white;
@@ -590,21 +512,18 @@ nav a {
     margin-bottom: 12px;
     letter-spacing: 1px;
 }
-
 .tip-summary {
     font-size: 1.15rem; 
     line-height: 1.4;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 20px;
 }
-
 .tip-details p {
     font-size: 1.15rem; 
     line-height: 1.4;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 20px;
 }
-
 .tip-box::after {
     content: "VIEW DETAILS +";
     position: absolute;
@@ -616,12 +535,10 @@ nav a {
     color: #d2eaa7;
     opacity: 0.6;
 }
-
 .tip-box.is-expanded::after {
     content: "CLOSE —";
     color: white;
 }
-
 .tip-details {
     max-height: 0;
     opacity: 0;
@@ -629,7 +546,6 @@ nav a {
     transition: all 0.5s ease cubic-bezier(0.4, 0, 0.2, 1);
     border-top: 1px solid rgba(255,255,255,0); 
 }
-
 .tip-box.is-expanded .tip-details {
     max-height: 600px; 
     opacity: 1;
@@ -638,8 +554,6 @@ nav a {
     padding-bottom: 30px;
     border-top-color: rgba(255,255,255,0.1); 
 }
-
-/* --- 6. STICKY NAV & HAMBURGER --- */
 #sticky-nav-container {
     position: fixed;
     top: 20px;
@@ -650,12 +564,10 @@ nav a {
     align-items: flex-end;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-
 .hidden {
     opacity: 0;
     visibility: hidden;
 }
-
 #hamburger-btn {
     background: rgba(0,0,0,0.2);
     border: 1px solid rgba(255,255,255,0.1);
@@ -672,7 +584,6 @@ nav a {
     -webkit-backdrop-filter: blur(8px) brightness(0.6) saturate(1.2);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
-
 #hamburger-btn span {
     display: block;
     width: 25px;
@@ -680,7 +591,6 @@ nav a {
     background-color: white;
     transition: 0.3s;
 }
-
 #sticky-menu {
     max-height: 0;
     overflow: hidden;
@@ -691,13 +601,11 @@ nav a {
     backdrop-filter: blur(10px) brightness(0.8) saturate(1.2);
     -webkit-backdrop-filter: blur(10px) brightness(0.8) saturate(1.2);
 }
-
 #sticky-menu.open {
     max-height: 600px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
-
 #sticky-menu ul {
     padding: 20px;
     display: flex;
@@ -707,7 +615,6 @@ nav a {
     align-items: flex-end;
     list-style: none;
 }
-
 #sticky-menu a {
     color: white;
     text-transform: uppercase;
@@ -715,30 +622,24 @@ nav a {
     font-weight: bold;
     white-space: nowrap;
 }
-
 #sticky-menu .nav-wrapper {
     position: relative;
     width: 100%;
     overflow: hidden;
     min-height: 50px;
 }
-
 #sticky-menu .search-bar-container {
     background: rgba(0, 0, 0, 0.85); 
     padding: 0 15px;
     box-sizing: border-box;
 }
-
 #sticky-search {
     font-size: 0.75rem;
     width: 100%;
 }
-
 #sticky-menu .nav-menu {
     transition: transform 0.4s ease, opacity 0.3s ease;
 }
-
-/* --- 7. MODALS --- */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -754,7 +655,6 @@ nav a {
     align-items: center;
     transition: opacity 0.4s ease;
 }
-
 .modal-content {
     background: rgba(15, 15, 15, 0.6); 
     backdrop-filter: blur(25px) brightness(0.7);
@@ -767,7 +667,6 @@ nav a {
     position: relative;
     box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9); 
 }
-
 .modal-title {
     font-family: "Danfo", serif;
     font-size: clamp(2.5rem, 8vw, 5.5rem); 
@@ -776,7 +675,6 @@ nav a {
     text-transform: uppercase;
     letter-spacing: 2px;
 }
-
 .modal-desc {
     font-family: Arial, sans-serif;
     font-size: 0.95rem;
@@ -787,7 +685,6 @@ nav a {
     margin-right: auto;
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
-
 .modal-form {
     display: flex;
     flex-direction: column;
@@ -795,7 +692,6 @@ nav a {
     max-width: 350px;
     margin: 0 auto;
 }
-
 .modal-form input {
     padding: 15px;
     background: rgba(255, 255, 255, 0.05);
@@ -805,11 +701,9 @@ nav a {
     outline: none;
     transition: border 0.3s;
 }
-
 .modal-form input:focus {
     border: 1px solid white;
 }
-
 .modal-form button {
     padding: 15px;
     background: white;
@@ -821,11 +715,9 @@ nav a {
     font-size: 0.9rem;
     transition: background 0.3s;
 }
-
 .modal-form button:hover {
     background: #ccc;
 }
-
 .phone-row {
     display: flex;
     align-items: center;
@@ -834,11 +726,9 @@ nav a {
     width: 100%;
     margin-top: 5px;
 }
-
 #phone-input {
     flex: 1;
 }
-
 .sms-toggle {
     display: flex;
     align-items: center;
@@ -846,7 +736,6 @@ nav a {
     white-space: nowrap;
     cursor: pointer;
 }
-
 .sms-label {
     font-size: 0.75rem;
     color: rgba(255, 255, 255, 0.6);
@@ -854,7 +743,6 @@ nav a {
     font-weight: bold;
     letter-spacing: 0.5px;
 }
-
 .sms-toggle input[type="checkbox"] {
     cursor: pointer;
     width: 16px;
@@ -862,7 +750,6 @@ nav a {
     margin: 0;
     accent-color: #ffffff;
 }
-
 .close-modal {
     position: absolute;
     top: 15px;
@@ -874,24 +761,20 @@ nav a {
     cursor: pointer;
     opacity: 0.5;
 }
-
 .close-modal:hover {
     opacity: 1;
 }
-
 .modal-hidden {
     opacity: 0;
     pointer-events: none;
     visibility: hidden;
 }
-
 .submission-header {
     font-family: "Gloock", serif;
     font-size: clamp(1.8rem, 5vw, 3rem);
     letter-spacing: 1px;
     margin-bottom: 20px;
 }
-
 .modal-form textarea {
     padding: 15px;
     background: rgba(255, 255, 255, 0.05);
@@ -906,23 +789,19 @@ nav a {
     width: 100%;
     box-sizing: border-box;
 }
-
 .modal-form textarea:focus {
     border: 1px solid white;
 }
-
 .file-upload-container {
     margin: 10px 0;
     text-align: left;
 }
-
 .file-label {
     display: flex;
     flex-direction: column;
     gap: 8px;
     cursor: pointer;
 }
-
 .file-custom-btn {
     display: inline-block;
     padding: 10px;
@@ -934,19 +813,16 @@ nav a {
     text-transform: uppercase;
     transition: 0.3s;
 }
-
 .file-custom-btn.file-attached {
     background: white;
     color: black;
     border-style: solid;
     border-color: white;
 }
-
 .file-custom-btn:hover {
     background: rgba(255, 255, 255, 0.2);
     border-color: white;
 }
-
 #file-name {
     font-size: 0.75rem;
     color: rgba(255, 255, 255, 0.5);
@@ -957,27 +833,22 @@ nav a {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-
-/* --- 8. FOOTER & BANNERS --- */
 footer {
     width: 100%;
     overflow: hidden;
     display: block;
 }
-
 .footer-signup {
     padding: 80px 20px;
     background: rgba(0,0,0,0.4);
     text-align: center;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 .signup-container h2 {
     font-size: 2.5rem;
     letter-spacing: 4px;
     margin-bottom: 10px;
 }
-
 .signup-form input {
     padding: 15px;
     width: 300px;
@@ -985,7 +856,6 @@ footer {
     border: 1px solid white;
     color: white;
 }
-
 .signup-form button {
     padding: 15px 30px;
     background: white;
@@ -993,7 +863,6 @@ footer {
     font-weight: bold;
     cursor: pointer;
 }
-
 .community-banner {
     grid-column: 1 / -1; 
     margin-top: 60px;
@@ -1004,7 +873,6 @@ footer {
     box-shadow: 0 0 0 100vmax #0d0f0e;
     clip-path: inset(0 -100vmax 0 -100vmax); 
 }
-
 .banner-content {
     max-width: 1000px; 
     margin: 0 auto;
@@ -1021,13 +889,11 @@ footer {
     text-align: center;
     transition: border 0.3s ease, transform 0.3s ease;
 }
-
 .banner-text {
     flex: none;
     min-width: auto;
     max-width: 600px;
 }
-
 .community-title {
     font-family: "Gloock", serif;
     font-size: 2.5rem;
@@ -1035,13 +901,11 @@ footer {
     margin-bottom: 10px;
     text-transform: uppercase;
 }
-
 .banner-text p {
     color: rgba(255, 255, 255, 0.7);
     font-size: 0.95rem;
     margin: 0;
 }
-
 .banner-form {
     display: flex;
     gap: 15px;
@@ -1049,7 +913,6 @@ footer {
     justify-content: center;
     flex-wrap: wrap;
 }
-
 .banner-form input {
     background: rgba(0, 0, 0, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -1058,7 +921,6 @@ footer {
     font-size: 0.9rem;
     outline: none;
 }
-
 .banner-phone-group {
     display: flex;
     align-items: center;
@@ -1067,12 +929,10 @@ footer {
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding-right: 10px;
 }
-
 .banner-phone-group input {
     border: none;
     background: transparent;
 }
-
 .banner-sms {
     display: flex;
     align-items: center;
@@ -1082,7 +942,6 @@ footer {
     font-weight: bold;
     text-transform: uppercase;
 }
-
 .banner-form button {
     background: white;
     color: black;
@@ -1093,73 +952,54 @@ footer {
     cursor: pointer;
     transition: 0.3s;
 }
-
 .banner-form button:hover {
     background: #d2eaa7; 
 }
-
-/* --- 9. MEDIA QUERIES --- */
-
-/* 1. Tablet View (Portrait & Small Laptop) - Fixing Overlapping Boxes */
 @media (max-width: 1024px) {
-    /* 1. Ensure the grid container does not exceed screen width */
     .info-grid-section {
         width: 100%;
         box-sizing: border-box;
-        padding: 0 20px; /* Adjust padding to keep content contained */
+        padding: 0 20px;
     }
-
-    /* 2. Force 1 column on tablets so boxes don't overlap */
     .grid-container {
         grid-template-columns: 1fr;
         gap: 20px;
         width: 100%;
     }
-
-    /* 3. Ensure boxes scale down within the grid */
     .glass-box {
-        max-width: 100%; /* Important: let it fill the grid column */
+        max-width: 100%; 
         min-height: auto;
-        box-sizing: border-box; /* Ensure padding doesn't push width out */
+        box-sizing: border-box; 
     }
-
-    /* Adjust layout for tablet */
     .hero-content {
         gap: 20px;
         padding: 0 30px;
     }
 }
-
-/* 2. Mobile View - Fixing horizontal overflow and alignment */
 @media (max-width: 600px) {
-    /* Prevent horizontal scroll */
     body, html {
         overflow-x: hidden;
         width: 100%;
     }
-
     .header-container {
         flex-direction: column; 
         gap: 10px;
         padding: 0 15px;
         align-items: center; 
         width: 100%;
-        box-sizing: border-box; /* Ensures padding doesn't push width out */
+        box-sizing: border-box; 
     }
-
     header h1 {
         font-size: clamp(2rem, 10vw, 3.5rem);
         text-align: center;
         width: 100%;
         white-space: normal; 
     }
-
     nav {
         max-width: 100%; 
         margin-left: 0;   
         width: 100%;
     }
-
     nav ul {
         gap: 15px;
         flex-wrap: wrap;
@@ -1167,11 +1007,9 @@ footer {
         border-top: 1px solid rgba(255,255,255,0.3);
         border-bottom: 1px solid rgba(255,255,255,0.3);
     }
-
     .hero {
         padding-top: 160px; 
     }
-
     .hero-content {
         flex-direction: column;
         align-items: center;
@@ -1180,29 +1018,23 @@ footer {
         width: 100%;
         box-sizing: border-box;
     }
-
     .hero-img-container {
         max-width: 100%;
         padding: 15px;
         padding-bottom: 30px;
         box-sizing: border-box;
     }
-    
     .hero-img-container img {
         width: 100%;
         height: auto;
     }
-
-    /* Latest Stories Section */
     .stories-header {
         padding: 0 15px;  
         margin-bottom: 10px;
     }
-
     .stories-header h2 {
         font-size: 1.8rem;
     }
-
     .horizontal-scroll-wrapper {
         padding: 0 15px 30px 15px;
         scroll-padding-left: 15px;
@@ -1210,47 +1042,37 @@ footer {
         width: 100%;
         box-sizing: border-box;
     }
-    
     .story-card {
         flex: 0 0 75vw;
         max-width: 300px;
         height: 480px;
     }
-    
     .story-details {
         padding: 15px;
         font-size: 0.9rem;
     }
-    
     .latest-stories-bar {
         padding: 30px 0 60px 0;
     }
-
     .latest-stories-bar::after {
-        width: 40px; /* Reduced fade width for mobile */
+        width: 40px; 
     }
-
-    /* Info Grid Section */
     .info-grid-section {
         padding: 0 15px;
         margin-top: 40px;
         width: 100%;
         box-sizing: border-box;
     }
-
     .grid-container {
         grid-template-columns: 1fr;
         gap: 20px;
         width: 100%;
     }
-
     .glass-box {
         max-width: 100%;
         padding: 20px;
         box-sizing: border-box;
     }
-
-    /* Banner */
     .banner-content {
         flex-direction: column;
         text-align: center;
@@ -1258,41 +1080,33 @@ footer {
         width: 90%;
         box-sizing: border-box;
     }
-    
     .banner-form {
         justify-content: center;
         width: 100%;
         flex-direction: column;
     }
-    
     .banner-form input, .banner-phone-group, .banner-form button {
         width: 100%;
         box-sizing: border-box;
     }
-    
-    /* --- Adjust Success Text for Mobile --- */
     .modal-content h3, 
     .modal-content p,
     .submission-header {
-        font-size: 1rem; /* Smaller for mobile */
+        font-size: 1rem;
     }
     .banner-phone-group {
         width: 100% !important;
         box-sizing: border-box;
-        display: flex; /* Ensures items stay side-by-side */
+        display: flex;
         align-items: center;
-        padding-right: 10px; /* Space for the checkbox */
+        padding-right: 10px;
     }
-
-    /* This allows the phone input to shrink so the checkbox stays inside */
     .banner-phone-group input.phone-input-field {
         flex: 1; 
-        min-width: 0; /* Forces the input to respect the flex container size */
+        min-width: 0; 
         width: 100%;
         background: transparent;
     }
-
-    /* Keeps the SMS label from squishing or wrapping awkwardly */
     .banner-sms {
         flex-shrink: 0;
         margin-left: 8px;
@@ -1301,27 +1115,21 @@ footer {
         align-items: center;
         gap: 4px;
     }
-
     .banner-sms input[type="checkbox"] {
         width: 14px;
         height: 14px;
         margin: 0;
     }
 }
-
-/* 3. Desktop View Adjustments */
 @media (min-width: 1025px) {
-    /* Smaller Success Messages on Desktop */
     #success-modal .modal-title {
-        font-size: 2.5rem; /* Reduced from default */
+        font-size: 2.5rem; 
     }
     
     #success-modal .modal-desc {
-        font-size: 1rem; /* Adjusted for better readability */
+        font-size: 1rem;
     }
 }
-
-/* Hover fixes for touch devices */
 @media (hover: hover) {
     .story-card:hover .story-details {
         transform: translateY(100%); 
