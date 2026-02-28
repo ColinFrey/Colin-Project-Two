@@ -93,6 +93,7 @@
       </ul>
 
       <form class="search-bar-container" onsubmit="handleSearch(event, 'sticky-search')">
+        <label for="main-search" class="visually-hidden">Search Artists</label>
         <input type="text" id="sticky-search" class="search-input" placeholder="SEARCH ARTISTS...">
         <button type="button" class="search-close">&times;</button>
       </form>
@@ -120,6 +121,7 @@
         </ul>
 
         <form class="search-bar-container" onsubmit="handleSearch(event, 'main-search')">
+          <label for="sticky-search" class="visually-hidden">Search Artists</label>
           <input type="text" id="main-search" class="search-input" placeholder="SEARCH ARTISTS...">
           <button type="button" class="search-close">&times;</button>
         </form>
