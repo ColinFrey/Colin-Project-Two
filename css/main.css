@@ -529,7 +529,7 @@ nav a {
     position: absolute;
     bottom: 15px;
     right: 20px;
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     font-weight: bold;
     letter-spacing: 1.5px;
     color: #d2eaa7;
@@ -938,7 +938,7 @@ footer {
     align-items: center;
     gap: 5px;
     color: #ffffff99;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-weight: bold;
     text-transform: uppercase;
 }
